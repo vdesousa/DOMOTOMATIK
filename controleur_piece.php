@@ -94,13 +94,15 @@ $_SESSION['nb_seuls']=$nb_seuls;
 
         while($count!=3){
     ?>    
-            <div class="nom_capteur">
-                <p><?php echo $_SESSION['types'][$i]; ?></p>
+            <div class="capteur">
+                <div class="nom_capteur">
+                    <p><?php echo $_SESSION['types'][$i]; ?></p>
+                </div>
+                <div class="valeur">
+                    <p><?php echo $_SESSION['valeurs'][$i]; ?></p>        
+                </div>
+                <a href="capteurt.php"><img src="reglage.png" alt="reglage" id="reglage"></a>
             </div>
-            <div class="valeur">
-                <p><?php echo $_SESSION['valeurs'][$i]; ?></p>        
-            </div>
-            <a href="capteurt.php"><img src="reglage.png" alt="reglage" id="reglage"></a>
         <?php
             $i+=1;
             $count++;
@@ -112,19 +114,27 @@ $_SESSION['nb_seuls']=$nb_seuls;
     }
 
     if($_SESSION['nb_seuls']!=0){
-        while($_SESSION['nb_seuls']!=0){
 ?>
-            <div class="nom_capteur">
-                <p><?php echo $_SESSION['types'][$i]; ?></p>
-            </div>
-            <div class="valeur">
-                <p><?php echo $_SESSION['valeurs'][$i]; ?></p>        
-            </div>
-            <a href="capteurt.php"><img src="reglage.png" alt="reglage" id="reglage"></a>    
+        <div class="ligne">
+<?php
+        while($_SESSION['nb_seuls']!=0){
+?>          
+            <div class="capteur">
+                <div class="nom_capteur">
+                    <p><?php echo $_SESSION['types'][$i]; ?></p>
+                </div>
+                <div class="valeur">
+                    <p><?php echo $_SESSION['valeurs'][$i]; ?></p>        
+                </div>
+                <a href="capteurt.php"><img src="reglage.png" alt="reglage" id="reglage"></a>  
+            </div>  
 <?php        
             $i+=1;
             $_SESSION['nb_seuls']-=1;
         }
+?>
+        </div>
+<?php
     }
 ?>
 

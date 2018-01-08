@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device_width">
-		<link rel="stylesheet" href="style_piece.css">
+        <link rel="stylesheet" href="style_piece.css">
+        <title>Mon domicile</title>
 	</head>
     
     <?php include("header_perso.php")?>
