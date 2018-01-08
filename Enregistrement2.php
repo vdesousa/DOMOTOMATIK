@@ -1,13 +1,13 @@
 <?php include("headerhc.php")?>
-	<div class="donnÃ©es1">
-		<form method="post" action="index.php">
+	<div class="donnees1">
+		<form method="post" action="index2.php">
 			<label>Nom:
 			<input type="text" name="nom" /></label><br>
-			<label>Prénom:
+			<label>PrÃ©nom:
 			<input type="text" name="prenom" /></label><br>
 			<label>Date de Naissance:
 			<input type="text" name="naissance" /></label><br>
-			<label>Numéro de téléphone:
+			<label>NumÃ©ro de tÃ©lÃ©phone:
 			<input type="text" name="numero" /></label><br>
 			<label>Mot de Passe:
 			<input type="password" name="password" /></label><br>
@@ -15,7 +15,7 @@
 			<input type="password" name="passwordconfirmation" /></label><br>
 			<input type="checkbox" name="CGU" />J'accepte les <a href="CGU.php">CGU</a><br>
 			<input type="checkbox" name="Newsletter" />Je m'inscris Ã  la Newsletter<br>
-			<input type="submit" value="Continuer" />
+			<input type="submit" name="submit" value="Continuer" />
 		</form>
 	</div>
 <?php include("footer.php")?>

@@ -37,7 +37,7 @@
                 <a class="mon_profil" href="#">Prénom NOM</a>
             </div>
             <div class="acces_rapide">
-                <p>Accés Rapide</p>
+                <p>Accès Rapide</p>
                 <a href="piece.php">Séjour</a>
                 <a href="#">Cuisine</a>
                 <a href="#">Chambre 1</a>

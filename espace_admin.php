@@ -1,4 +1,5 @@
 <?php
+
 try
 {
 
@@ -13,38 +14,10 @@ catch(Exception $e)
 $requete = $bdd->query('SELECT * FROM (capteur INNER JOIN pannes ON capteur.id_capteur = pannes.id_panne) INNER JOIN personne ON capteur.id_utilisateur= personne.id_personne');
 $donnees = $requete->fetch();
 
-$dateadhesion1 = $bdd->query('SELECT date_adhesion FROM utilisateur WHERE id_utilisateur=1');
-$adhesion1 = $dateadhesion1->fetch();
 
-$dateadhesion2 = $bdd->query('SELECT date_adhesion FROM utilisateur WHERE id_utilisateur=2');
-$adhesion2 = $dateadhesion2->fetch();
+$requete2 = $bdd->query('SELECT * FROM personne,utilisateur');
+$donnees2 = $requete2->fetchAll();
 
-$dateadhesion3 = $bdd->query('SELECT date_adhesion FROM utilisateur WHERE id_utilisateur=3');
-$adhesion3 = $dateadhesion3->fetch();
-
-$dateadhesion4 = $bdd->query('SELECT date_adhesion FROM utilisateur WHERE id_utilisateur=4');
-$adhesion4 = $dateadhesion4->fetch();
-
-$dateadhesion5 = $bdd->query('SELECT date_adhesion FROM utilisateur WHERE id_utilisateur=5');
-$adhesion5 = $dateadhesion5->fetch();
-
-$dateadhesion6 = $bdd->query('SELECT date_adhesion FROM utilisateur WHERE id_utilisateur=6');
-$adhesion6 = $dateadhesion6->fetch();
-
-$requete2 = $bdd->query('SELECT * FROM personne WHERE prenom=\'Cédric\'');
-$donnees2 = $requete2->fetch();
-
-$requete3 = $bdd->query('SELECT * FROM personne WHERE prenom=\'Lucas\'');
-$donnees3 = $requete3->fetch();
-
-$requete4 = $bdd->query('SELECT * FROM personne WHERE prenom=\'Virgilio\'');
-$donnees4 = $requete4->fetch();
-
-$requete5 = $bdd->query('SELECT * FROM personne WHERE prenom=\'Merlin\'');
-$donnees5 = $requete5->fetch();
-
-$requete6 = $bdd->query('SELECT * FROM personne WHERE prenom=\'Xiangyu\'');
-$donnees6 = $requete6->fetch();
 
 ?>
 
@@ -57,6 +30,7 @@ $donnees6 = $requete6->fetch();
   </head>
   <body>
     <header>
+      <?php echo 'coucou'; ?>
       <span class="open-slide">
           <a href="#" onclick="openSlideMenu()">
             <svg width="30" height="30">
@@ -95,7 +69,7 @@ $donnees6 = $requete6->fetch();
       </div>
       <script>
           function openSlideMenu(){document.getElementById('side-menu').style.width = '250px';}
-     
+
 
         function closeSlideMenu(){document.getElementById('side-menu').style.width = '0';}
 
@@ -115,59 +89,26 @@ $donnees6 = $requete6->fetch();
        <th>Date d'adhésion</th>
        <th>Historique des pannes</th>
    </tr>
-   <tr>
-       <td><?php echo $donnees['prenom']; ?></td>
-       <td><?php echo $donnees['nom']; ?></td>
-       <td><?php echo $donnees['telephone']; ?></td>
-       <td><?php echo $donnees['adresse_postale']; ?></td>       
-       <td><?php echo $adhesion1['date_adhesion']; ?></td>
-       <td><a href="controleur_panne.php">Consultez l'historique des pannes</a></td>
-   </tr>
 
-   <tr>
-       <td><?php echo $donnees2['prenom']; ?></td>
-       <td><?php echo $donnees2['nom']; ?></td>
-       <td><?php echo $donnees2['telephone']; ?></td>
-       <td><?php echo $donnees2['adresse_postale']; ?></td>   
-       <td><?php echo $adhesion2['date_adhesion']; ?></td>
-       <td><a href="controleur_panne.php?">Consultez l'historique des pannes</a></td>
-   </tr>
+  <?php
 
-    <tr>
-       <td><?php echo $donnees3['prenom']; ?></td>
-       <td><?php echo $donnees3['nom']; ?></td>
-       <td><?php echo $donnees3['telephone']; ?></td>
-       <td><?php echo $donnees3['adresse_postale']; ?></td>   
-       <td><?php echo $adhesion3['date_adhesion']; ?></td>
-       <td><a href="controleur_panne.php">Consultez l'historique des pannes</a></td>
-   </tr>
+   foreach ($donnees2 as $donnee):
+     {
+  ?>
+       <tr>
+           <td><?php echo $donnee['prenom']; ?></td>
+           <td><?php echo $donnee['nom']; ?></td>
+           <td><?php echo $donnee['telephone']; ?></td>
+           <td><?php echo $donnee['adresse_postale']; ?></td>
+           <td><?php echo $donnee['date_adhesion']; ?></td>
+           <td><a href="controleur_panne.php?id=<?php echo $donnee['id']; ?>">Consultez historique des pannes</a></td>
+       </tr>
+  <?php
+     }
+  ?>
 
-    <tr>
-       <td><?php echo $donnees4['prenom']; ?></td>
-       <td><?php echo $donnees4['nom']; ?></td>
-       <td><?php echo $donnees4['telephone']; ?></td>
-       <td><?php echo $donnees4['adresse_postale']; ?></td>   
-       <td><?php echo $adhesion4['date_adhesion']; ?></td>
-       <td><a href="controleur_panne.php">Consultez l'historique des pannes</a></td>
-   </tr>
+   <?php endforeach; ?>
 
-    <tr>
-       <td><?php echo $donnees5['prenom']; ?></td>
-       <td><?php echo $donnees5['nom']; ?></td>
-       <td><?php echo $donnees5['telephone']; ?></td>
-       <td><?php echo $donnees5['adresse_postale']; ?></td>   
-       <td><?php echo $adhesion5['date_adhesion']; ?></td>
-       <td><a href="controleur_panne.php">Consultez l'historique des pannes</a></td>
-   </tr>
-
-    <tr>
-       <td><?php echo $donnees6['prenom']; ?></td>
-       <td><?php echo $donnees6['nom']; ?></td>
-       <td><?php echo $donnees6['telephone']; ?></td>
-       <td><?php echo $donnees6['adresse_postale']; ?></td>   
-       <td><?php echo $adhesion6['date_adhesion']; ?></td>
-       <td><a href="controleur_panne.php">Consultez l'historique des pannes</a></td>
-   </tr>
 
     </table>
 
@@ -175,7 +116,7 @@ $donnees6 = $requete6->fetch();
 <div id="documents_juridiques">
 <table>
     <caption><strong>Éditer les documents juridiques</strong></caption>
-    
+
    <tr>
        <th>Mentions légales</th>
       <td><form><input type="submit" name="bouton" value="Modifier"></form></td>

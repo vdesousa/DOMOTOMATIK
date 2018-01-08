@@ -10,7 +10,7 @@
                     Contrôle du domicile :
                 </h2>
                 <div class="liste_pieces">
-                    <a href="piece1">S�jour</a>
+                    <a href="piece.php">Séjour</a>
                     <a href="piece2">Cuisine</a>
                     <a href="piece3">Chambre 1</a>
                     <a href="piece4">Chambre 2</a><br/>
