@@ -25,20 +25,23 @@ if(isset($_SESSION['id_maison_choisie']) && isset($_SESSION['position_maison']))
     echo '<h2>Contrôle du domicile '. $positionmaison .' :</h2>';
   }
   $idutilisateur=$_SESSION['id_personne'];
-  $requete=$bdd->prepare("SELECT nom_de_piece FROM piece WHERE id_maison=?"); // On vise toutes les pièces de la maison
+  $requete=$bdd->prepare("SELECT nom_de_piece, id_piece FROM piece WHERE id_maison=?"); // On vise toutes les pièces de la maison
   $requete->execute(array($_SESSION['id_maison_choisie']));
   $donnees=$requete->fetchAll();
 
   $a=0;
   $pieces=[];
+  $idpieces=[];
 
   foreach($donnees as $donnee)
   {
     $pieces[]=$donnee['nom_de_piece'];
+    $idpieces[]=$donnee['id_piece'];
     $a+=1;
   } //On récupère le nombre de pièces et leurs noms
   $_SESSION['nb_pieces']=$a;
   $_SESSION['pieces']=$pieces;
+  $_SESSION['id_pieces']=$idpieces;
   $_SESSION['nombre_lignes_pieces']=floor($a/5); //floor=arrondi entier inférieur
   $_SESSION['nombre_pieces_restantes']=$a%5; // On veut 5 pièces par ligne
   $requete->closeCursor();
@@ -56,7 +59,8 @@ if(isset($_SESSION['id_maison_choisie']) && isset($_SESSION['position_maison']))
       {
         ?>
         <div class="piece">
-          <p><a href=pieces.php?piece=<?php echo $_SESSION['pieces'][$i]?>><?php echo $_SESSION['pieces'][$i]?></a></p>
+          <p><a href=vue_piece.php?piece=<?php echo $_SESSION['id_pieces'][$i]?>><?php echo $_SESSION['pieces'][$i]?></a></p>
+
         </div>
         <?php
         $i+=1;
@@ -77,7 +81,7 @@ if(isset($_SESSION['id_maison_choisie']) && isset($_SESSION['position_maison']))
     {
       ?>
       <div class='piece'>
-      <p><a href=pieces.php?piece=<?php echo $_SESSION['pieces'][$i]?>><?php echo $_SESSION['pieces'][$i]?></a></p>
+      <p><a href=vue_piece.php?piece=<?php echo $_SESSION['id_pieces'][$i]?>><?php echo $_SESSION['pieces'][$i]?></a></p>
       </div>
     <?php
     $i+=1;
