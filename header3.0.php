@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -47,11 +48,9 @@
         </div>
   		<script>
   		    function openSlideMenu(){document.getElementById('side-menu').style.width = '250px';}
-     
+
 
     		function closeSlideMenu(){document.getElementById('side-menu').style.width = '0';}
 
  		</script>
  		<div class="content">
- 		
- 		

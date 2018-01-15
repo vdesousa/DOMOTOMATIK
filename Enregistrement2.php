@@ -1,5 +1,6 @@
 <?php include("headerhc.php")?>
 	<div class="donnees1">
+		<span>Créer mon profil</span>
 		<form method="post" action="index2.php">
 			<label>Nom:
 			<input type="text" name="nom" /></label><br>

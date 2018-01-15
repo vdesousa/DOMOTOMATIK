@@ -7,7 +7,6 @@
                         Aucune erreur système détectée
                     </p>
                 </div>
-            <?php include('controleur_tableau_bord.php')
-
+            <?php include('controleur_tableau_bord.php') ?>
         </section>
  <?php include("footer.php")?>
