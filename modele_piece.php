@@ -1,53 +1,25 @@
 <?php
 
-/*Ouverture de la session pour récupérer les infos*/
-session_start();
-
 /*Connexion BDD*/
 try{$bdd = new PDO('mysql:host=localhost;port=8889;dbname=bdd_5e;charset=utf8', 'root', 'root');}
 catch (Exception $e){die('Erreur : '.$e->getMessage());}
 
 
-//************************ PREMIER EXEMPLE **************************************
-
-/*Récupération de la varaible id_maison passée en session sinon ça merde dans la requête SQL
-  (une sombre histoire de guillemets)*/
-$idmaison = $_SESSION['id_maison'];
-
-/*La formulation de la requête et son affichage*/
-$requete = $bdd->query("SELECT nom_de_piece FROM piece WHERE id_maison = '$idmaison'");
-$donnees = $requete->fetchAll();
-
-/*FACULTATIF : L'affichage du nom des pièces appartenant au gars dont la session est ouverte
-foreach ($donnees as $donnee):
-{
-    echo $donnee['nom_de_piece'];
-    echo '</br>';
-}
-endforeach;*/
-
-/*Le nombre de pièces du gars*/
-$a=0;
-
-foreach ($donnees as $donnee):
-{
-    $a+=1;
-}
-endforeach;
-
-
-
-
-
-
-//**********************  PASSONS AUX CHOSES SÉRIEUSES *******************************
-
-/*Récupération de l'id de l'utilisateur*/
+/*Récupération de l'id de l'utilisateur et de sa maison*/
 $iduser = $_SESSION['id_personne'];
+$idmaison = $_SESSION['id_maison'];
+$nompiece = $_SESSION['choix_piece'];
+
+/*Requête préalable : obtention de l'id de la pièce choisie*/
+
+$req = $bdd->query("SELECT id_piece FROM piece WHERE id_maison = '$idmaison' AND nom_de_piece = '$nompiece'");
+$res = $req->fetch();
+$idpiece = $res['id_piece'];
 
 /*La formulation de la requête et son affichage*/
-$requete = $bdd->query("SELECT * FROM capteur WHERE id_utilisateur = '$iduser'");
+$requete = $bdd->query("SELECT * FROM capteur WHERE id_piece = '$idpiece'");
 $donnees = $requete->fetchAll();
+
 $a=0;
 $types=[];
 $valeurs=[];
@@ -55,30 +27,30 @@ $valeurs=[];
 foreach ($donnees as $donnee):
     {
         $types[] = $donnee['type'];
-        echo $donnee['type']." ";
+        //echo $donnee['type']." ";
         $valeurs[] = $donnee['valeur_temps_reel'];
-        echo '</br>';
+        //echo '</br>';
         $a+=1;
     }
 endforeach;
 
-echo '<pre>';
+/*echo '<pre>';
 print_r($types);
 echo '</pre>';
 
 echo '<pre>';
 print_r($valeurs);
-echo '</pre>';
+echo '</pre>';*/
 
 $nb_lignes=floor($a/3);
 $nb_seuls=$a%3;
 
-echo '</br>';
+/*echo '</br>';
 echo $a." capteurs :";
 echo '</br>';
 echo $nb_lignes." ligne(s) de 3 capteurs + ";
 echo $nb_seuls." capteur(s) seul(s).";
-echo '</br></br>';
+echo '</br></br>';*/
 
 $_SESSION['types']=$types;
 $_SESSION['valeurs']=$valeurs;
