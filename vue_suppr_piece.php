@@ -10,8 +10,8 @@
   <?php include("header_perso.php")?>
   <body>
     <section>
-        <h2>Ajouter une pièce</h2>
-        <?php include("controleur_ajout_piece.php") ?>
+        <h2>Supprimer une pièce</h2>
+        <?php include("controleur_suppr_piece.php") ?>
         <div class="validation">
             <input type="submit" value="Valider">
         </div>

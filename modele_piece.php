@@ -1,9 +1,11 @@
 <?php
 
+/*Amène la fonction de conversion de données*/
+include('conversion_donnees.php');
+
 /*Connexion BDD*/
 try{$bdd = new PDO('mysql:host=localhost;port=8889;dbname=bdd_5e;charset=utf8', 'root', 'root');}
 catch (Exception $e){die('Erreur : '.$e->getMessage());}
-
 
 /*Récupération de l'id de l'utilisateur et de sa maison*/
 $iduser = $_SESSION['id_personne'];
@@ -24,15 +26,14 @@ $a=0;
 $types=[];
 $valeurs=[];
 
-foreach ($donnees as $donnee):
-    {
-        $types[] = $donnee['type'];
-        //echo $donnee['type']." ";
-        $valeurs[] = $donnee['valeur_temps_reel'];
-        //echo '</br>';
-        $a+=1;
-    }
-endforeach;
+foreach ($donnees as $donnee):{
+  $types[] = $donnee['type'];
+  $conv= conversion($donnee['valeur_temps_reel'], $donnee['type']);
+  $valeurs[] = $conv;
+  $a+=1;
+} endforeach;
+
+
 
 /*echo '<pre>';
 print_r($types);
@@ -45,12 +46,12 @@ echo '</pre>';*/
 $nb_lignes=floor($a/3);
 $nb_seuls=$a%3;
 
-/*echo '</br>';
+/* echo '</br>';
 echo $a." capteurs :";
 echo '</br>';
 echo $nb_lignes." ligne(s) de 3 capteurs + ";
 echo $nb_seuls." capteur(s) seul(s).";
-echo '</br></br>';*/
+echo '</br></br>'; */
 
 $_SESSION['types']=$types;
 $_SESSION['valeurs']=$valeurs;

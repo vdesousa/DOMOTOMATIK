@@ -1,6 +1,6 @@
 <?php
   session_start();
-  include("modele_ajout_piece.php");
+  include("modele_suppr_piece.php");
   $length_dom=count($tab_dom);
   $length_pce=count($tab_pce);
 ?>
@@ -34,7 +34,7 @@
         ?>
       <p>Sélectionner un domicile :</p>
 
-      <form action="modele_ajout_piece_bdd.php" method="post">
+      <form action="modele_suppr_piece_bdd.php" method="post">
           <input type="hidden" name="choix_piece" value=<?php echo $_SESSION['choix_piece']; ?>>
 
               <select name="domicile" size="1">
