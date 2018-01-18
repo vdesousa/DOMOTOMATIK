@@ -1,0 +1,27 @@
+footer{
+	display: inline-block;
+	min-width: 100%;
+	max-height: 200px;
+	background-color: rgb(72,69,70);
+	margin-top: 50px;
+}
+
+footer ul
+{
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	list-style-type: none;
+}
+
+footer ul li
+{
+	margin-right: 50px;
+	white-space: nowrap;
+}
+
+footer ul li a
+{
+	color: white;
+	text-decoration: none;
+}
