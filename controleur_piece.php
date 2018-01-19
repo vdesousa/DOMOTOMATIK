@@ -1,8 +1,11 @@
 <?php
     session_start();
-    if (isset($_POST['choix_piece'])){
-      $_SESSION['choix_piece']=$_POST['choix_piece'];
+    include("conversion_id_nom_piece.php");
+
+    if (isset($nomdelapiece)){
+      $_SESSION['choix_piece']=$nomdelapiece;
     }
+
     include("modele_piece.php");
 ?>
 
