@@ -3,47 +3,51 @@
 session_start();
 
 if (isset($_POST['submit'])) {
-  include 'dbh.php';
+    try{
+      $bdd = new PDO('mysql:host=localhost;dbname=bdd_5e;charset=utf8', 'root', 'root');
+    }
+    catch (Exception $e){
+      die('Erreur : '.$e->getMessage());
+    }
 
-  $email = mysqli_real_escape_string($conn, $_POST['email'])
-  $password = mysqli_real_escape_string($conn, $_POST['password'])
+  $email = $_POST['email'];
+  $password = $_POST['password'];
 
   //erreurs
   if (empty($email) || empty($password)) {
-    header("Location: Enregistrement.php?champs=vides")
+    header("Location: connexion.php?champs=vides");
     exit();
   } else {
-    $sql = "SELECT * FROM utilisateur WHERE utilisateur_email=$email";
-    $result = myqsli_query($conn, $sql);
-    $resultCheck = mysqli_num_rows($result);
-    if ($resultCheck < 1) {
-      header("Location: connexion.php?connexion=erreur")
+    $req1 = $bdd->query("SELECT * FROM personne WHERE email = '$email'");
+    $res1 = $req1->fetchAll();
+    $id = $res1[0]['id_personne'];
+    if (count($res1) < 1) {
+      header("Location: connexion.php?utilisateur=inconnu");
       exit();
     } else {
-      if ($row = mysqli_fetch_assoc($result)) {
-        $checkpassword = password_verify($password, $row['utilisateur_password'])
-        if ($checkpassword == false) {
-          header("Location: connexion.php?connexion=erreur")
+        if (password_verify($password, $res1[0]["mot_de_passe"]) == FALSE) {
+          header("Location: connexion.php?mdp=faux");
           exit();
-        } elseif($checkpassword == true]) {
-          //connecter
-          $_SESSION['nom'] = $row['utilisateur_nom']
-          $_SESSION['prenom'] = $row['utilisateur_prenom']
-          $_SESSION['email'] = $row['utilisateur_email']
-          $_SESSION['numero'] = $row['utilisateur_numero']
-          $_SESSION['naissance'] = $row['utilisateur_naissance']
-          $_SESSION['newsletter'] = $row['utilisateur_newsletter']
-          $_SESSION['email'] = $row['utilisateur_email']
+        } else {
+          $_SESSION['email'] = $email;
+          $_SESSION ['nom'] = $res1[0]['nom'];
+          $_SESSION ['prenom'] = $res1[0]['prenom'];
+          $_SESSION ['telephone'] = $res1[0]['telephone'];
+          $req2 = $bdd->query("SELECT * FROM utilisateur WHERE id_personne = '$id'");
+          $res2 = $req2->fetchAll();
+          if (count($res2) < 1) {
+            header("Location: espace_administrateur.php");
+            exit();
+          } else {
 
-          header("Location: tableau_de_bord.php")
+          header("Location: tableaudebord.php");
           exit();
+        }
         }
       }
     }
-  }
-
-} else {
-  header("Location: Enregistrement.php?confirmation=erreur")
+  } else {
+  header("Location: connexion.php");
   exit();
 }
 ?>

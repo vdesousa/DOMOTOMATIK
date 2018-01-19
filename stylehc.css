@@ -30,7 +30,7 @@ header #recherchedeco{
 header #recherchedeco a{
 	text-decoration:none;
 	color:#ffffff;
-	margin-left:70px;
+	margin-left:20px;
 	margin-top:10px;
 }
 header form{
@@ -106,6 +106,26 @@ header form{
 .donnees1 form{
 	font-size: 25px;
 	margin-top: 100px;
+	text-align: center;
+}
+
+.connexion {
+	margin-left: auto;
+	margin-top: 200px;
+	text-align: center;
+}
+.connexion span{
+	font-size: 50px;
+}
+.connexion form{
+	font-size: 25px;
+	margin-top: 100px;
+	text-align: center;
+}
+
+p{
+	font-size: 20px;1
+	color: red;
 	text-align: center;
 }
 
