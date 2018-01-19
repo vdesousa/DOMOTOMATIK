@@ -1,8 +1,5 @@
 <?php
-
-/*Connexion BDD*/
-try{$bdd = new PDO('mysql:host=localhost;port=8889;dbname=bdd_5e;charset=utf8', 'root', 'root');}
-catch (Exception $e){die('Erreur : '.$e->getMessage());}
+include("dbh.php");
 
 /*Déclaration des variables utiles aux requêtes*/
 $idutilisateur=$_SESSION['id_personne'];
