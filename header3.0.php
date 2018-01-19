@@ -1,3 +1,4 @@
+
 <!DOCTYPE HTML>
 <html>
 	<head>
@@ -37,7 +38,7 @@
                 <a class="mon_profil" href="#">Prénom NOM</a>
             </div>
             <div class="acces_rapide">
-                <p>Accés Rapide</p>
+                <p>Accès Rapide</p>
                 <a href="piece.php">Séjour</a>
                 <a href="#">Cuisine</a>
                 <a href="#">Chambre 1</a>
@@ -47,11 +48,9 @@
         </div>
   		<script>
   		    function openSlideMenu(){document.getElementById('side-menu').style.width = '250px';}
-     
+
 
     		function closeSlideMenu(){document.getElementById('side-menu').style.width = '0';}
 
  		</script>
  		<div class="content">
- 		
- 		

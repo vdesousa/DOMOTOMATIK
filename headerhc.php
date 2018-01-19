@@ -14,6 +14,7 @@
 					</a>
 				</div>
 				<div id="recherchedeco">
+					<a href="Enregistrement.php">S'inscrire</a>
 					<a href="connexion.php">Se connecter</a>
 					<form>
 						<input type="text" name="barre_recherche" placeholder="Rechercher..." />
