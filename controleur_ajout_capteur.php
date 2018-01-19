@@ -35,7 +35,7 @@
         ?>
       <p>Sélectionner un domicile :</p>
 
-      <form action="vue_piece.php" method="post">
+      <form action="modele_ajout_capteur_bdd.php" method="post">
           <input type="hidden" name="choix_piece" value=<?php echo $_SESSION['choix_piece']; ?>>
 
               <select name="domicile" size="1">

@@ -1,6 +1,8 @@
 <?php
     session_start();
-    $_SESSION['choix_piece']=$_POST['choix_piece'];
+    if (isset($_POST['choix_piece'])){
+      $_SESSION['choix_piece']=$_POST['choix_piece'];
+    }
     include("modele_piece.php");
 ?>
 
@@ -22,7 +24,7 @@
     if($_SESSION['nb_lignes']==0&&$_SESSION['nb_seuls']==0){
 ?>
         <p class="pas_capteur">Vous n'avez aucun capteur dans cette pièce.</p>
-<?php        
+<?php
     }
     while($_SESSION['nb_lignes']!=0){
 ?>
@@ -31,21 +33,21 @@
         $count=0;
 
         while($count!=3){
-    ?>    
+    ?>
             <div class="capteur">
                 <div class="nom_capteur">
                     <p><?php echo $_SESSION['types'][$i]; ?></p>
                 </div>
                 <div class="valeur">
-                    <p><?php echo $_SESSION['valeurs'][$i]; ?></p>        
+                    <p><?php echo $_SESSION['valeurs'][$i]; ?></p>
                 </div>
                 <a href="capteurt.php"><img src="reglage.png" alt="reglage" id="reglage"></a>
             </div>
         <?php
             $i+=1;
             $count++;
-        }    
-        ?>    
+        }
+        ?>
         </div>
 <?php
         $_SESSION['nb_lignes']-=1;
@@ -56,17 +58,17 @@
         <div class="ligne">
 <?php
         while($_SESSION['nb_seuls']!=0){
-?>          
+?>
             <div class="capteur">
                 <div class="nom_capteur">
                     <p><?php echo $_SESSION['types'][$i]; ?></p>
                 </div>
                 <div class="valeur">
-                    <p><?php echo $_SESSION['valeurs'][$i]; ?></p>        
+                    <p><?php echo $_SESSION['valeurs'][$i]; ?></p>
                 </div>
-                <a href="capteurt.php"><img src="reglage.png" alt="reglage" id="reglage"></a>  
-            </div>  
-<?php        
+                <a href="capteurt.php"><img src="reglage.png" alt="reglage" id="reglage"></a>
+            </div>
+<?php
             $i+=1;
             $_SESSION['nb_seuls']-=1;
         }
