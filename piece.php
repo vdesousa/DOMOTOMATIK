@@ -47,7 +47,7 @@
         </div>
   		<script>
   		    function openSlideMenu(){document.getElementById('side-menu').style.width = '250px';}
-     
+
 
     		function closeSlideMenu(){document.getElementById('side-menu').style.width = '0';}
 
@@ -58,49 +58,49 @@
             <div class="ligne1">
             <div class="capteur">
                 <div class="nom_capteur">
-                    <p>Température</p>        
+                    <p>Température</p>
                 </div>
                 <div class="valeur">
-                    <p>25°C</p>        
+                    <p>25°C</p>
                 </div>
                 <a href="capteurt.php"><img src="reglage.png" alt="reglage" id="reglage"></a>
             </div>
             <div class="capteur">
                 <div class="nom_capteur">
-                    <p>Luminosité</p>            
+                    <p>Luminosité</p>
                 </div>
                 <div class="valeur">
-                    <p>40 %</p>        
+                    <p>40 %</p>
                 </div>
                 <a href="capteurl.php"><img src="reglage.png" alt="reglage" id="reglage"></a>
             </div>
             <div class="capteur">
                 <div class="nom_capteur">
-                    <p>Présence</p>            
+                    <p>Présence</p>
                 </div>
                 <div class="valeur">
-                    <p>Non</p>        
+                    <p>Non</p>
                 </div>
                 <a href="#"><img src="reglage.png" alt="reglage" id="reglage"></a>
             </div>
-            
+
             </div>
             <div class="ligne2">
             <div class="capteur">
                 <div class="nom_capteur">
-                    <p>Présence aux fenêtres</p>            
+                    <p>Présence aux fenêtres</p>
                 </div>
                 <div class="valeur">
-                    <p>Non</p>        
+                    <p>Non</p>
                 </div>
                 <a href="#"><img src="reglage.png" alt="reglage" id="reglage"></a>
             </div>
             <div class="capteur">
                 <div class="nom_capteur">
-                    <p>Humidité</p>            
+                    <p>Humidité</p>
                 </div>
                 <div class="valeur">
-                    <p>60 %</p>        
+                    <p>60 %</p>
                 </div>
                 <a href="#"><img src="reglage.png" alt="reglage" id="reglage"></a>
             </div>
@@ -108,7 +108,7 @@
                 <form>
                     <input type="submit" class="ajout_piece"
                      value="Ajouter un capteur">
-                </form>    
+                </form>
             </div>
             </div>
         </div>
