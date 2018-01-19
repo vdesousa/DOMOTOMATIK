@@ -4,12 +4,11 @@
 include('conversion_donnees.php');
 
 /*Connexion BDD*/
-try{$bdd = new PDO('mysql:host=localhost;port=8889;dbname=bdd_5e;charset=utf8', 'root', 'root');}
-catch (Exception $e){die('Erreur : '.$e->getMessage());}
+include("dbh.php");
 
 /*Récupération de l'id de l'utilisateur et de sa maison*/
 $iduser = $_SESSION['id_personne'];
-$idmaison = $_SESSION['id_maison'];
+$idmaison = $_SESSION['id_maison_choisie'];
 $nompiece = $_SESSION['choix_piece'];
 
 /*Requête préalable : obtention de l'id de la pièce choisie*/

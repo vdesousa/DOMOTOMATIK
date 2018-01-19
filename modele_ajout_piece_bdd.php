@@ -1,11 +1,8 @@
 <?php
 session_start();
+include("dbh.php");
 
-/*Connexion BDD*/
-try{$bdd = new PDO('mysql:host=localhost;port=8889;dbname=bdd_5e;charset=utf8', 'root', 'root');}
-catch (Exception $e){die('Erreur : '.$e->getMessage());}
-
-$idmaison=$_SESSION['id_maison'];
+$idmaison=$_SESSION['id_maison_choisie'];
 $nompiece=$_POST['piece'];
 
 $req3 = $bdd->prepare("INSERT INTO piece(id_piece, id_maison, nom_de_piece) VALUES (NULL, :idmaison, :nompiece)");
