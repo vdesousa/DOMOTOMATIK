@@ -1,13 +1,10 @@
 <?php
 session_start();
-
-/*Connexion BDD*/
-try{$bdd = new PDO('mysql:host=localhost;port=8889;dbname=bdd_5e;charset=utf8', 'root', 'root');}
-catch (Exception $e){die('Erreur : '.$e->getMessage());}
+include("dbh.php");
 
 /*Initialisation des variables*/
 $idutilisateur=$_SESSION['id_personne'];
-$idmaison=$_SESSION['id_maison'];
+$idmaison=$_SESSION['id_maison_choisie'];
 $nompiece=$_POST['piece'];
 $nomcapteur=$_POST['capteur'];
 
