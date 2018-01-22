@@ -20,7 +20,7 @@ $req1->execute(array('utilisateur'=>$_GET['panne']));
        <th>Date de la panne</th>
    </tr>
 <?php
-while($donnees1=$req1->fetch()) {
+while($donnees1=$req1->fetch()) {//c'est ici que je bloque Lucas, il faudrait peut-être rajouter une boucle while encore à l'intérieur de cette boucle.
 ?>
     <tr>
        <td><?php echo $donnees1['type']; ?></td>
