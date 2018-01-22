@@ -1,6 +1,6 @@
 <?php
-$mail = 'lucas.darlavoix@isep.fr'; // Déclaration de l'adresse de destination.
-if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn).[a-z]{2,4}$#", $mail)) // On filtre les serveurs qui présentent des bogues.
+$mail = $_POST['destinataire']; // Déclaration de l'adresse de destination.
+if (!preg_match("#^[a-z0-9._-]+@(hotmail|live|msn|orange|gmail).[a-z]{2,4}$#", $mail)) // On filtre les serveurs qui présentent des bogues.
 {
 	$passage_ligne = "\r\n";
 }
@@ -9,7 +9,7 @@ else
 	$passage_ligne = "\n";
 }
 //=====Déclaration des messages au format texte et au format HTML.
-$message_txt = "Votre facture est de 500 balles. Il faut payer maintenant FDP. Cordialement, Lucas de DOMOTOMATIK";
+$message_txt = $_POST['message'];
 $message_html =
 "<html>
   <head>
@@ -49,10 +49,9 @@ $message_html.="<img src=LOGO.jpg alt='logo'>";
 $message_html.=
       	"<h2>DOMOTOMATIK</h2>
       </div>
-      <h4>Bonjour monsieur,</h4>
-      <p>Votre facture est de <span style='color:red'>500 balles</span>.</p>
-      <p>Il faut payer maintenant <b>FDP</b>.</p>
-      <p>Cordialement, </br> Lucas de DOMOTOMATIK</p>
+      <h4>Madame, monsieur,</h4>".$_POST['message']."
+	  <p>Cordialement,</p></br>
+	  <p>L'équipe DOMOTOMATIK.</p>
     </section>
   </body>
 </html>";
@@ -72,7 +71,7 @@ $boundary_alt = "-----=".md5(rand());
 
 
 //=====Définition du sujet.
-$sujet = "Votre facture pour votre abonnement DOMOTOMATIK";
+$sujet = $_POST['objet'];
 //=========
 
 //=====Création du header de l'e-mail.
@@ -120,6 +119,6 @@ mail($mail,$sujet,$message,$header);
 
 //==========
 
-echo "Done !";
+header('Location:espace_administrateur.php');
 
 ?>
