@@ -3,7 +3,7 @@ include('config.php');
 include('header_admin.php');
 
 $req=$pdo->query('SELECT * FROM pannes INNER JOIN capteur ON pannes.id_capteur = capteur.id_capteur INNER JOIN utilisateur ON capteur.id_capteur = utilisateur.id_personne INNER JOIN personne ON utilisateur.id_utilisateur = personne.id_personne');
-$req1=$pdo->prepare('SELECT type, valeur_temps_reel, rapport_erreur, DATE_FORMAT(date_panne, \'%d/%m/%Y à %Hh%imin%ss\')AS date_erreur FROM pannes,capteur WHERE id_utilisateur=:utilisateur AND etat="0"');
+$req1=$pdo->prepare('SELECT type, valeur_temps_reel, etat, rapport_erreur, DATE_FORMAT(date_panne, \'%d/%m/%Y à %Hh%imin%ss\')AS date_erreur FROM pannes,capteur WHERE id_utilisateur=:utilisateur GROUP BY capteur.id_capteur');
 $req1->execute(array('utilisateur'=>$_GET['panne']));
 ?>
 
@@ -20,7 +20,8 @@ $req1->execute(array('utilisateur'=>$_GET['panne']));
        <th>Date de la panne</th>
    </tr>
 <?php
-while($donnees1=$req1->fetch()) {//c'est ici que je bloque Lucas, il faudrait peut-être rajouter une boucle while encore à l'intérieur de cette boucle.
+while($donnees1=$req1->fetch()) {
+    if($donnees1['etat']=="0"){
 ?>
     <tr>
        <td><?php echo $donnees1['type']; ?></td>
@@ -29,8 +30,7 @@ while($donnees1=$req1->fetch()) {//c'est ici que je bloque Lucas, il faudrait pe
        <td><?php echo $donnees1['date_erreur']; ?></td>
     </tr>
 <?php
-}
-$req->closeCursor();
+  }
 }
 $req1->closeCursor();
  ?>
