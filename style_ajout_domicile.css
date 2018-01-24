@@ -1,0 +1,64 @@
+section
+{
+  background-color:#EFE3AF;
+  height:300px;
+  width:600px;
+  margin-left:450px;
+  border: solid 1px black;
+  margin-top:100px;
+  padding-top:15px;
+}
+
+section h2
+{
+  font-size:26px;
+  font-weight:bold;
+  text-align: center;
+  padding-bottom:10px;
+}
+
+section label
+{
+  font-size:18px;
+}
+.corps
+{
+  display:flex;
+  justify-content: center;
+}
+section label
+{
+  margin-bottom:3px;
+}
+section input
+{
+  margin-bottom:2px;
+}
+.labels
+{
+  display:flex;
+  flex-direction:column;
+}
+.donnees
+{
+  display:flex;
+  flex-direction:column;
+  margin-left:20px;
+}
+.validation
+{
+    background-color: rgb(44, 134, 44);
+    color: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    display:table;
+    padding:5px;
+    margin-left: 43%;
+    margin-top: 20px;
+    margin-bottom: 25px;
+}
+.validation:hover
+{
+    border: 1px solid white;
+    border-radius: 3px;
+}
