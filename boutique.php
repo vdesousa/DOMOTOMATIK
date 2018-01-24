@@ -15,7 +15,7 @@
   $nbrcapt-=1;
   while ($nbrcapt !=-1) {
       $nomobj = $res1[$nbrcapt]['nom_objet'];
-      $codeobj = $res1[$nbrcapt]['photo'];
+      $photo = $res1[$nbrcapt]['photo'];
     	echo '<li><a href="'.$nomobj.'php"><img src='.$photo.'><br><span>'.$nomobj.'</span></a></li>';
       $nbrcapt -=1; }
   ?>

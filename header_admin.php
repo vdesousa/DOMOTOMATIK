@@ -36,8 +36,8 @@
                 <img src="Photo_de_profil.png" style="width: auto , margin-top: 100px;">
                 <a class="mon_profil" href="#" style="white-space: nowrap;">Toan DANG NGOC</a>
                 <ul style="list-style-type: none;">
-                	<li><a href="boite_mail.php" style="white-space: nowrap">Boîte de réception</a></li>
                 	<li><a href="send_message.php" style="white-space: nowrap;">Envoyer un message</a></li>
+                	<li><a href="modifier_catalogue.php" style="white-space: nowrap">Modifier le catalogue</a></li>
                 </ul>
             </div>
         </div>

@@ -15,6 +15,8 @@
         <?php
           if ($length_dom===1) {
         ?>
+        <form action="modele_ajout_capteur_bdd.php" method="post">
+            <input type="hidden" name="choix_piece" value=<?php echo $_SESSION['choix_piece']; ?>>
             <p>Votre domicile :
         <?php
             $length_dom_elt=count($tab_dom[0]);

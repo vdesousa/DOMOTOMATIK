@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_POST['submit'])) {
     try{
-      $bdd = new PDO('mysql:host=localhost;dbname=bdd_5e;charset=utf8', 'root', 'root');
+      $bdd = new PDO('mysql:host=localhost;port=8889;dbname=bdd_5e;charset=utf8', 'root', 'root');
     }
     catch (Exception $e){
       die('Erreur : '.$e->getMessage());
@@ -21,9 +21,12 @@ if (isset($_POST['submit'])) {
     if (isset($_POST['Newsletter']))
       {$newsletter = "oui";
     } else {$newsletter = "non";}
-    $adresse = $_POST['adresse'];
+    $numerop = $_POST['numerop'];
+    $rue = $_POST['rue'];
+    $complement = $_POST['complement'];
     $codepostal = $_POST['codepostal'];
     $ville = $_POST['ville'];
+    $pays = $_POST['pays'];
 
     //erreurs
     if(empty($nom) || empty($prenom) ||
@@ -72,14 +75,17 @@ if (isset($_POST['submit'])) {
                         	));
                         $id_personne = $bdd->lastInsertId();
                         $date = date("Y-m-d");
-                        $req2 = $bdd->prepare("INSERT INTO utilisateur(id_personne, newsletter, date_adhesion, adresse, codepostal, ville) VALUES(:id_personne, :newsletter, :date_adhesion, :adresse, :codepostal, :ville)");
+                        $req2 = $bdd->prepare("INSERT INTO utilisateur(id_personne, newsletter, date_adhesion, numero, rue, complement, code_postal, ville, pays) VALUES(:id_personne, :newsletter, :date_adhesion, :numero, :rue, :complement, :codepostal, :ville, :pays)");
                         $req2->execute(array(
                           'id_personne' => $id_personne,
                           'newsletter' => $newsletter,
                           'date_adhesion' => $date,
-                          'adresse' => $adresse,
+                          'numero' => $numerop,
+                          'rue' => $rue,
+                          'complement' => $complement,
                           'codepostal' => $codepostal,
                           'ville' => $ville,
+                          'pays' => $pays,
                           ));
                           session_destroy();
                           // if ($req->execute()) {
