@@ -1,6 +1,6 @@
 <?php
-require('modele_cgu.php');
-include('header3.0.php');
+require('modele_documents_juridiques.php');
+include('header_admin.php');
 include('footer.php');
 
 

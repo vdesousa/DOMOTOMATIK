@@ -18,9 +18,8 @@ include('footer.php'); ?>
 	   <caption><strong>Bilan général</strong></caption>
 
 	   <tr>
+	       <th>Prénom du client</th>
 	       <th>Nom du client</th>
-	       <th>Adresse postale</th>
-	       <th>Code postal</th>	       	       
 	       <th>Numéro de téléphone</th>
 	       <th>Adresse Email</th>
 	       <th>Date d'adhésion</th>
@@ -30,13 +29,12 @@ include('footer.php'); ?>
  while ($addUser = $user->fetch()) {
  	?>
  	<tr>
- 	<td><?php echo htmlspecialchars($addUser['name']); ?></td>
- 	<td><?php echo htmlspecialchars($addUser['address']); ?></td>
-    <td><?php echo htmlspecialchars($addUser['postcode']); ?></td>
-    <td><?php echo htmlspecialchars($addUser['phone']); ?></td>
+ 	<td><?php echo htmlspecialchars($addUser['prenom']); ?></td>
+ 	<td><?php echo htmlspecialchars($addUser['nom']); ?></td>
+ 	<td><?php echo htmlspecialchars($addUser['telephone']); ?></td>
     <td><?php echo htmlspecialchars($addUser['email']); ?></td>
-    <td><?php echo htmlspecialchars($addUser['date_fr']); ?></td>
-    <td><a href="controleur_panne.php?id=<?php echo $donnee['id']; ?>">Consultez historique des pannes</a></td>
+    <td><?php echo htmlspecialchars($addUser['date_adhesion']); ?></td>
+    <td><a href="controleur_panne.php?panne=<?php echo $addUser['id_utilisateur']; ?>">Consultez historique des pannes</a></td>
        </tr>
  <?php
  }

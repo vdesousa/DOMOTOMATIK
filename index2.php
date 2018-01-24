@@ -75,7 +75,7 @@ if (isset($_POST['submit'])) {
                         	));
                         $id_personne = $bdd->lastInsertId();
                         $date = date("Y-m-d");
-                        $req2 = $bdd->prepare("INSERT INTO utilisateur(id_personne, newsletter, date_adhesion, numero, rue, complement, codepostal, ville, pays) VALUES(:id_personne, :newsletter, :date_adhesion, :numero, :rue, :complement, :codepostal, :ville, :pays)");
+                        $req2 = $bdd->prepare("INSERT INTO utilisateur(id_personne, newsletter, date_adhesion, numero, rue, complement, code_postal, ville, pays) VALUES(:id_personne, :newsletter, :date_adhesion, :numero, :rue, :complement, :codepostal, :ville, :pays)");
                         $req2->execute(array(
                           'id_personne' => $id_personne,
                           'newsletter' => $newsletter,

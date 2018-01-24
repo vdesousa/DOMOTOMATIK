@@ -33,7 +33,7 @@ if (isset($_POST['submit'])) {
           $_SESSION ['nom'] = $res1[0]['nom'];
           $_SESSION ['prenom'] = $res1[0]['prenom'];
           $_SESSION ['telephone'] = $res1[0]['telephone'];
-          $_SESSION['id_personne'] = $res1[0]['id_personne']
+          $_SESSION['id_personne'] = $res1[0]['id_personne'];
           $req2 = $bdd->query("SELECT * FROM utilisateur WHERE id_personne = '$id'");
           $res2 = $req2->fetchAll();
           if (count($res2) < 1) {
