@@ -1,0 +1,104 @@
+.content h2
+{
+    font-weight:bold;
+    font-size:26px;
+}
+.content figcaption
+{
+    text-align:center;
+}
+figure a
+{
+    text-decoration:none;
+    color:#494546
+}
+figure
+{
+  margin-top:35px;
+}
+.content form
+{
+  margin-left:30px;
+  display:flex;
+  flex-direction:column;
+}
+.informations
+{
+    display:flex;
+    margin-left:320px;
+    margin-right:350px;
+    background-color:#EFE3AF;
+    border:solid 1px black;
+    padding-top:20px;
+    padding-left:50px;
+    padding-right:50px;
+    padding-bottom:25px;
+}
+.formulaire
+{
+  display:flex;
+}
+.labels
+{
+  display:flex;
+  flex-direction:column;
+}
+.infos
+{
+    display:flex;
+    flex-direction:column;
+    margin-left:5px;
+}
+.infos input
+{
+  height:16px;
+  flex-direction:column;
+  margin-top:6px;
+}
+.content label
+{
+  height:20px;
+  display: flex;
+  flex-direction:column;
+  margin-top:8px;
+}
+#modif
+{
+  margin-left:50px;
+  margin-top:10px;
+  width:130px;
+  height:25px;
+  background-color: rgb(44, 134, 44);
+  color: white;
+  border: 1px solid black;
+  border-radius: 3px;
+  display:table;
+  padding:5px;
+
+}
+#modif:hover
+{
+    border: 1px solid white;
+    border-radius: 3px;
+}
+#modif2
+{
+    margin-left:80px;
+    margin-top:13px;
+    width:200px;
+    height:25px;
+    background-color: rgb(44, 134, 44);
+    color: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding:5px;
+}
+#modif2:hover
+{
+    border: 1px solid white;
+    border-radius: 3px;
+}
+.changement
+{
+  font-size:16px;
+}
