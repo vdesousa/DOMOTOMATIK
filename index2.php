@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_POST['submit'])) {
     include("dbh.php");
-    }}
+    }
     else {header("Location: Enregistrement2.php");
           exit();
         }
