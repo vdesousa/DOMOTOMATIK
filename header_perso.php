@@ -32,7 +32,6 @@
 	<div id="side-menu" class="side-nav">
         <div class="acces_profil">
             <a href="#" class="btn-close" onclick="closeSlideMenu()">&times;</a>
-            <img src="Photo_de_profil.png">
             <a class="mon_profil" href="#">Prénom NOM</a>
         </div>
         <div class="acces_rapide">

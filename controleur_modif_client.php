@@ -1,8 +1,6 @@
 <?php
-try
-{$bdd = new PDO('mysql:host=localhost;port=3306;dbname=bdd_5e;charset=utf8', 'root', 'root');}
-catch (Exception $e)
-{die('Erreur : '.$e->getMessage());} // Connexion bdd
+include("dbh.php"); // Connexion bdd
+$idpersonne=$_SESSION['id_personne'];
 
 if ($_POST['pass']!=$_POST['pass2'])
 {
@@ -17,8 +15,6 @@ elseif ($_POST['pass']==$_POST['pass2'])
     'telephone'=>$_POST['telephone'],
     'email'=>$_POST['email'],
     'mdp'=>$_POST['pass']
-
-
   ));
   $requete->closeCursor();
 

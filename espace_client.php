@@ -15,10 +15,6 @@
      <div class="donnees">
              <h2><center>Modifier les informations personnelles</center></h2></br>
              <div class="informations">
-                      <figure>
-                             <img class="petite_photo" src="Photo_de_profil.png" alt="Photo de profil"><br/>
-                             <figcaption><input type="submit" value="Modifier la photo" id="modif"/></figcaption>
-                      </figure>
                       <form method="post" action="controleur_modif_client.php">
                         <div class="formulaire">
                           <div class="labels">
