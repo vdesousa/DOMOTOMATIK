@@ -34,7 +34,7 @@ $code = $_POST['code'];
         }
       }
     }
-  }
+  
 
 else {
   header("Location: Enregistrement.php");
