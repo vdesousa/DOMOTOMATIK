@@ -12,7 +12,7 @@
       $nomobj = $res1[$nbrcapt]['nom_objet'];
       $photo = $res1[$nbrcapt]['photo'];
     	echo '<li><a href="'.$nomobj.'php"><img src='.$photo.'><br><span>'.$nomobj.'</span></a></li>';
-      $nbrcapt -=1; }
+      $nbrcapt -=1; };
   ?>
 </ul>
 
