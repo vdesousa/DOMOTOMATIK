@@ -1,10 +1,5 @@
 <?php include("headerhc.php") ?>
-<?php   try{
-    $bdd = new PDO('mysql:host=localhost;dbname=bdd_5e;charset=utf8', 'root', 'root');
-  }
-  catch (Exception $e){
-    die('Erreur : '.$e->getMessage());
-  }
+<?php   include("dbh.php")
   $req1 = $bdd->query("SELECT `nom_objet`, `photo` FROM `boutique`");
   $res1 = $req1->fetchAll();
   ?>

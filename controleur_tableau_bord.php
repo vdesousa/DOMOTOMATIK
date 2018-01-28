@@ -1,8 +1,6 @@
 <?php
-try
-{$bdd = new PDO('mysql:host=localhost;port=3306;dbname=bdd_5e;charset=utf8', 'root', 'root');}
-catch (Exception $e)
-{die('Erreur : '.$e->getMessage());} // Connexion bdd
+include("dbh.php"); // Connexion bdd
+
 if(isset($_GET['id_maison']))
 {
   $_SESSION['id_maison_choisie']=$_GET['id_maison'];
@@ -28,9 +26,7 @@ if(isset($_SESSION['id_maison_choisie']) && isset($_SESSION['position_maison']))
   }
 
   $idutilisateur=$_SESSION['id_personne'];
-  $requete=$bdd->prepare("SELECT nom_de_piece, id_piece, complement FROM piece WHERE id_maison=?"); // On vise toutes les pièces de la maison
-  $requete->execute(array($_SESSION['id_maison_choisie']));
-  $donnees=$requete->fetchAll();
+  include("modele_tableau_bord.php");
 
   $a=0;
   $complement=[];
@@ -49,7 +45,6 @@ if(isset($_SESSION['id_maison_choisie']) && isset($_SESSION['position_maison']))
   $_SESSION['complement_piece']=$complement;
   $_SESSION['nombre_lignes_pieces']=floor($a/5); //floor=arrondi entier inférieur
   $_SESSION['nombre_pieces_restantes']=$a%5; // On veut 5 pièces par ligne
-  $requete->closeCursor();
 
 
   $i=0;
@@ -72,10 +67,10 @@ if(isset($_SESSION['id_maison_choisie']) && isset($_SESSION['position_maison']))
         $count++ ;
       }
       ?>
-    </div>
+      </div>
   <?php
   $nbr_lignes-=1;
-  }
+} // On affiche les lignes pleines (5 pièces par ligne)
 
   if($_SESSION['nombre_pieces_restantes']==0)
   {
@@ -101,7 +96,7 @@ if(isset($_SESSION['id_maison_choisie']) && isset($_SESSION['position_maison']))
       <?php
       $i+=1;
       $nbr_pieces_restantes-=1;
-      }
+    } // On affiche la dernière ligne avec les pièces restantes
       ?>
         <div class="piece2">
           <p><a href=vue_ajout_piece.php>Ajouter une pièce</a></p>

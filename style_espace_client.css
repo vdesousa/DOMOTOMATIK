@@ -3,19 +3,6 @@
     font-weight:bold;
     font-size:26px;
 }
-.content figcaption
-{
-    text-align:center;
-}
-figure a
-{
-    text-decoration:none;
-    color:#494546
-}
-figure
-{
-  margin-top:35px;
-}
 .content form
 {
   margin-left:30px;
@@ -25,13 +12,12 @@ figure
 .informations
 {
     display:flex;
-    margin-left:320px;
-    margin-right:350px;
+    margin-left:540px;
+    width:490px;
     background-color:#EFE3AF;
     border:solid 1px black;
     padding-top:20px;
-    padding-left:50px;
-    padding-right:50px;
+    padding-left:110px;
     padding-bottom:25px;
 }
 .formulaire
@@ -42,12 +28,14 @@ figure
 {
   display:flex;
   flex-direction:column;
+  margin-top:1px;
 }
 .infos
 {
     display:flex;
     flex-direction:column;
     margin-left:5px;
+    margin-top:2px;
 }
 .infos input
 {
@@ -55,11 +43,9 @@ figure
   flex-direction:column;
   margin-top:6px;
 }
-.content label
+.formulaire label
 {
   height:20px;
-  display: flex;
-  flex-direction:column;
   margin-top:8px;
 }
 #modif

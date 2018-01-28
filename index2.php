@@ -2,12 +2,8 @@
 session_start();
 
 if (isset($_POST['submit'])) {
-    try{
-      $bdd = new PDO('mysql:host=localhost;dbname=bdd_5e;charset=utf8', 'root', 'root');
+    include("dbh.php");
     }
-    catch (Exception $e){
-      die('Erreur : '.$e->getMessage());
-    }}
     else {header("Location: Enregistrement2.php");
           exit();
         }

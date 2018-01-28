@@ -2,11 +2,7 @@
 session_start();
 
 if (isset($_POST['submit'])) {
-  try{
-    $bdd = new PDO('mysql:host=localhost;dbname=bdd_5e;charset=utf8', 'root', 'root');
-  }
-  catch (Exception $e){
-    die('Erreur : '.$e->getMessage());
+  include("dbh.php");
   }
 $email = $_POST['email'];
 $code = $_POST['code'];
@@ -38,7 +34,7 @@ $code = $_POST['code'];
         }
       }
     }
-  }
+  
 
 else {
   header("Location: Enregistrement.php");

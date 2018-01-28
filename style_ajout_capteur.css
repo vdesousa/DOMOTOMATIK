@@ -1,0 +1,63 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    white-space: nowrap;
+}
+
+section{
+    background-color: rgb(238,227,181);
+    /* height: 350px; */
+    margin-top:100px;
+    margin-bottom: 100px;
+    display: table;
+    margin-left: auto;
+    margin-right: auto;
+    border: 1px solid black;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: center;
+}
+
+select{
+    margin-left: 10px;
+    margin-top: 15px;
+    height: 20px;
+}
+
+.domicile{
+    display:flex;
+}
+
+.piece{
+    display:flex;
+}
+
+.type_capteur{
+    display:flex;
+}
+
+.reference_produit{
+    display:flex;
+}
+
+.reference_produit input{
+    margin-left: 10px;
+    margin-top: 12px;
+    height: 20px;
+}
+
+.validation input{
+    background-color: rgb(44, 134, 44);
+    color: white;
+    border: 1px solid black;
+    border-radius: 3px;
+    display:table;
+    padding:5px;
+    margin-left: 43%;
+    margin-top: 15px;
+    margin-bottom: 40px;
+}
+
+.validation input:hover{
+    border: 1px solid white;
+    border-radius: 3px;
+}
