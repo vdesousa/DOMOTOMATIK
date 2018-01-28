@@ -4,7 +4,7 @@
 
 	?>
 	<div class="connexion">
-		<span>Créer mon profil</span>
+		<span>Se connecter</span>
 		<form method="post" action="index3.php">
 			<label>E-mail:
 			<input type="text" name="email" /></label><br>
