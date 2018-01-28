@@ -2,10 +2,8 @@
 include("dbh.php");
 
 $idutilisateur=$_SESSION['id_utilisateur'];
-
-$requete=$bdd->query("SELECT id_maison, numero, rue, ville FROM maison WHERE id_utilisateur=$idutilisateur"); // On cherche toutes les maisons qui appartiennent à la personne
-$donnees=$requete->fetchAll();
 $x=0;
+include("modele_nombre_domicile.php");
 
 foreach ($donnees as $donnee)
 {
@@ -53,8 +51,8 @@ elseif($x>1)
 
   $_SESSION['nbr_maisons']=$a;
   $_SESSION['id_maisons']=$idmaisons;
-  $_SESSION['nbr_lignes_maisons']=floor($a/5);
-  $_SESSION['nbr_maisons_restantes']=$a%5;
+  $_SESSION['nbr_lignes_maisons']=floor($a/5); // On calcule ici le nombre de lignes pleines (5 maisons par ligne)
+  $_SESSION['nbr_maisons_restantes']=$a%5; // On calcule ici le nombre de de maisons restantes sur la dernière ligne
   ?>
 
   <?php
@@ -78,10 +76,10 @@ elseif($x>1)
         $count++ ;
       }
       ?>
-    </div>
-  <?php
-  $nbr_lignes-=1;
-  }
+      </div>
+    <?php
+    $nbr_lignes-=1;
+    } // On affiche 5 maisons dans chaque ligne pleine
   if ($_SESSION['nbr_maisons_restantes']==0)
   {?>
     <div class="ligne">
@@ -90,7 +88,7 @@ elseif($x>1)
       </div>
     </div>
   <?php
-  }
+}
 
   if($_SESSION['nbr_maisons_restantes']!=0)
   {
@@ -107,7 +105,7 @@ elseif($x>1)
     <?php
     $i+=1;
     $nbr_maisons_restantes-=1;
-    }
+  } // On affiche les maisons restantes sur la dernière ligne
   ?><div class='maison2'>
         <p><a href=vue_ajout_domicile.php>Ajouter un domicile</a></p>
       </div>

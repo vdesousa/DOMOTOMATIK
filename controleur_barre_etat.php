@@ -1,8 +1,5 @@
 <?php
-$requete=$bdd->prepare('SELECT etat FROM capteur INNER JOIN piece ON capteur.id_piece=piece.id_piece WHERE id_maison=?');
-$requete->execute(array($_SESSION['id_maison_choisie']));
-$donnees=$requete->fetchAll();
-
+include("modele_barre_etat.php");
 $etat=true;
 $a=0;
 foreach($donnees as $donnee)
@@ -12,7 +9,7 @@ foreach($donnees as $donnee)
     $etat=false;
   }
   $a+=1;
-}
+} // Si un ou plusieurs capteurs sont éteints, la variable $etat prend la valeur false
 
 if ($etat==true && $a>=1)
 {
@@ -22,7 +19,7 @@ if ($etat==true && $a>=1)
           Tous les capteurs sont allumés dans la maison
       </p>
   </div>';
-}
+} // Si tous les capteurs sont allumés, on affiche la barre d'état positive
 elseif ($etat==false && $a>=1)
 {
   echo '<div class="etat_general">
@@ -31,5 +28,5 @@ elseif ($etat==false && $a>=1)
           Un ou plusieurs capteurs ne sont pas allumés dans la maison
       </p>
   </div>';
-}
+} // Sinon on affiche la barre d'état négative
 ?>
