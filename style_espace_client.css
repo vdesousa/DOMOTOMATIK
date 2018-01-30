@@ -1,3 +1,7 @@
+section
+{
+  height:510px;
+}
 .content h2
 {
     font-weight:bold;
@@ -12,17 +16,18 @@
 .informations
 {
     display:flex;
-    margin-left:450px;
-    width:490px;
+    margin-left:485px;
+    width:450px;
     background-color:#EFE3AF;
     border:solid 1px black;
     padding-top:20px;
-    padding-left:110px;
+    padding-left:80px;
     padding-bottom:25px;
 }
 .formulaire
 {
   display:flex;
+  margin-left:30px;
 }
 .labels
 {

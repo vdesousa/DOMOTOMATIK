@@ -28,8 +28,6 @@
                             <label for="pays">Pays : </label>
                             <label for="telephone">Numéro de téléphone : </label>
                             <label for="email">Email : </label>
-                            <label for="pass">Mot de passe : </label>
-                            <label for="pass2">Confirmation mot de passe : </label>
                           </div>
                           <div class="infos">
                             <input type="text" name="nom" id="nom" value="<?php echo $nom ?>" required/>
@@ -42,16 +40,11 @@
                             <input type="text" name="pays" id="pays" value="<?php echo $pays ?>" required/>
                             <input type="tel" name="telephone" id="telephone" value="<?php echo $telephone ?>" required/>
                             <input type="text" name="email" id="email" value="<?php echo $email ?>" required/>
-                            <input type="password" name="pass" id="pass" value="<?php echo $mdp ?>" required/>
-                            <input type="password" name="pass2" id="pass2" value="<?php echo $mdp ?>" required/>
                           </div>
                         </div>
                         <input type="submit" value="Confirmer les modifications" id="modif2">
                       </form>
               </div>
-    </div>
-    <div class="donnees2">
-
     </div>
             <?php include("controleur_modif_ok.php")?>
 </section>
