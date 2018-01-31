@@ -1,10 +1,7 @@
 <?php
-try
-{$bdd = new PDO('mysql:host=localhost;port=8889;dbname=bdd_5e;charset=utf8', 'root', 'root');}
-catch (Exception $e)
-{die('Erreur : '.$e->getMessage());} // Connexion bdd
+include("dbh.php");
 
-$idutilisateur=$_SESSION['id_personne'];
+$idutilisateur=$_SESSION['id_utilisateur'];
 
 $requete=$bdd->query("SELECT id_maison, numero, rue, ville FROM maison WHERE id_utilisateur=$idutilisateur"); // On cherche toutes les maisons qui appartiennent à la personne
 $donnees=$requete->fetchAll();

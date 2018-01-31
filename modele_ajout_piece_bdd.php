@@ -15,7 +15,7 @@ if ($_SESSION['choix_piece']!="--- Sélectionner une pièce ---") {
   exit();
 }
 else{
-  header("Location : tableaudebord.php",TRUE,301);
+  header("Location : tableaudebord.php");
   exit();
 }
 

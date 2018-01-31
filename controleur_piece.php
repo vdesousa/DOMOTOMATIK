@@ -41,10 +41,19 @@
                 <div class="nom_capteur">
                     <p><?php echo $_SESSION['types'][$i]; ?></p>
                 </div>
+                <div class="dot">
+                  <p><?php echo $_SESSION['etats'][$i]?></p>
+                </div>
                 <div class="valeur">
                     <p><?php echo $_SESSION['valeurs'][$i]; ?></p>
                 </div>
-                <a href="capteurt.php"><img src="reglage.png" alt="reglage" id="reglage"></a>
+                <form method="post" action="vue_capteur.php">
+                  <input type="hidden" name="choix_piece" value=<?php echo $_SESSION['choix_piece']; ?>>
+                  <input type="hidden" name="nom_capteur" value=<?php echo $_SESSION['types'][$i]; ?>>
+                  <input type="hidden" name="valeur_capteur" value=<?php echo $_SESSION['valeurs'][$i]; ?>>
+                  <input type="hidden" name="id_capteur" value=<?php echo $_SESSION['id_capteurs'][$i]; ?>>
+                  <input type="image" src="reglage.png" id="reglage">
+                </form>
             </div>
         <?php
             $i+=1;
@@ -66,10 +75,19 @@
                 <div class="nom_capteur">
                     <p><?php echo $_SESSION['types'][$i]; ?></p>
                 </div>
+                <div class="dot">
+                  <p><?php echo $_SESSION['etats'][$i]?></p>
+                </div>
                 <div class="valeur">
                     <p><?php echo $_SESSION['valeurs'][$i]; ?></p>
                 </div>
-                <a href="capteurt.php"><img src="reglage.png" alt="reglage" id="reglage"></a>
+                <form method="post" action="vue_capteur.php">
+                  <input type="hidden" name="choix_piece" value=<?php echo $_SESSION['choix_piece']; ?>>
+                  <input type="hidden" name="nom_capteur" value=<?php echo $_SESSION['types'][$i]; ?>>
+                  <input type="hidden" name="valeur_capteur" value=<?php echo $_SESSION['valeurs'][$i]; ?>>
+                  <input type="hidden" name="id_capteur" value=<?php echo $_SESSION['id_capteurs'][$i]; ?>>
+                  <input src="reglage.png" type="image" id="reglage">
+                </form>
             </div>
 <?php
             $i+=1;
