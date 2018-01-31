@@ -14,7 +14,6 @@
         <?php
           if ($length_dom===1) {
         ?>
-        <form action="modele_ajout_piece_bdd.php" method="post">
             <p>Votre domicile :
         <?php
             $length_dom_elt=count($tab_dom[0]);
@@ -36,9 +35,8 @@
       <p>Sélectionner un domicile :</p>
 
       <form action="modele_ajout_piece_bdd.php" method="post">
-        <?php if (isset($_SESSION['choix_piece'])) { ?>
-            <input type="hidden" name="choix_piece" value=<?php echo $_SESSION['choix_piece']; ?>>
-        <?php } ?>
+          <input type="hidden" name="choix_piece" value=<?php echo $_SESSION['choix_piece']; ?>>
+
               <select name="domicile" size="1">
                 <option>--- Sélectionner un domicile ---</option>
 
@@ -78,6 +76,5 @@
               ?>
           </select>
   </div>
-
 
 </html>
