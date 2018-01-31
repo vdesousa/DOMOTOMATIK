@@ -24,15 +24,28 @@ $donnees = $requete->fetchAll();
 $a=0;
 $types=[];
 $valeurs=[];
+$idcap=[];
+$etats=[];
 
 foreach ($donnees as $donnee):{
+  $idcap[] = $donnee['id_capteur'];
   $types[] = $donnee['type'];
+  $etats[] = $donnee['allume_ou_eteint'];
   $conv= conversion($donnee['valeur_temps_reel'], $donnee['type']);
   $valeurs[] = $conv;
   $a+=1;
 } endforeach;
 
-
+$c=count($etats);
+$pastilles_etat=[];
+for ($i=0; $i < $c; $i++) {
+  if ($etats[$i]==0) {
+    $pastilles_etat[] = "<img src='red_dot.png' alt='red' height='20' width='14' hspace='5'>";
+  }
+  elseif ($etats[$i]==1) {
+    $pastilles_etat[] = "<img src='green_dot.png' alt='green' height='18' width='25' vspace='1'>";
+  }
+}
 
 /*echo '<pre>';
 print_r($types);
@@ -54,7 +67,9 @@ echo '</br></br>'; */
 
 $_SESSION['types']=$types;
 $_SESSION['valeurs']=$valeurs;
+$_SESSION['id_capteurs']=$idcap;
 $_SESSION['nb_lignes']=$nb_lignes;
 $_SESSION['nb_seuls']=$nb_seuls;
+$_SESSION['etats']=$pastilles_etat;
 
 ?>
