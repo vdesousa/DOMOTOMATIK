@@ -4,12 +4,13 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device_width">
 		<link rel="stylesheet" type="text/css" href="stylehc.css">
+		<link rel="stylesheet" type="text/css" href="headerfooterhc.css">
 	</head>
 	<body>
 		<header>
 			<div class="container">
 				<div id="logo">
-					<a href="accueil.php">
+					<a href="vue_accueil.php">
 						<img src="LOGO.jpg" title="Accueil" alt="accueil">
 					</a>
 				</div>

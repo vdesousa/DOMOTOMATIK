@@ -2,14 +2,13 @@
 session_start();
 
 if (isset($_POST['submit'])) {
-    include('modele_inscription.php')
+    include('modele_inscription.php');
         }
 
 
 
     //erreurs
-    if(empty($nom) || empty($prenom) ||
-    empty($numero) || empty($password)) {
+    if(empty($nom) || empty($prenom) ||  empty($numero) || empty($password)) {
       header("Location: Enregistrement2.php?enregistrement=vide");
       exit();
     } else {
@@ -68,7 +67,7 @@ if (isset($_POST['submit'])) {
                           ));
                           session_destroy();
                           // if ($req->execute()) {
-                          header("Location: boutique.php?enregistrement=succes");
+                          header("Location: vue_accueil.php");
                           exit();
                         // } else {header("Location: Enregistrement2.php?enregistrement=erreur");
                         // exit();}
