@@ -1,5 +1,6 @@
 <?php
   include("dbh.php");
+  include("securite.php");
 
   // Ouverture éventuelle de session
   if (!isset($_SESSION['id_capteur'])) {
@@ -7,8 +8,8 @@
   }
 
   // Variable pour les requêtes SQL
-  $idcapteur=$_SESSION['id_capteur'];
-  $nomcapteur=$_SESSION['nom_capteur'];
+  $idcapteur=securite::sql($_SESSION['id_capteur']);
+  $nomcapteur=securite::sql($_SESSION['nom_capteur']);
 
   // Fonction conv état --> valeurs
   function conv_etat($x){
@@ -54,12 +55,12 @@
   // Requête pour mettre à jour la valeur souhaitée
   if (isset($_POST['set_val'])) {
     if (isset($_POST['valeur_immediate'])) {
-      $value=$_POST['valeur_immediate'];
+      $value=securite::sql($_POST['valeur_immediate']);
       if ($nomcapteur==="Luminosité") {
         $value=conv_etat($value);
       }
     } elseif (isset($_POST['etat_immediat'])) {
-      $value=$_POST['etat_immediat'];
+      $value=securite::sql($_POST['etat_immediat']);
       $value=conv_etat($value);
     }
     $r3 = $bdd->prepare("UPDATE capteur SET valeur_temps_reel = :valeur WHERE id_capteur = :idcapteur");
@@ -73,15 +74,22 @@
 
   if (isset($_POST['prog_val'])) {
     if (isset($_POST['valeur_souhaitee'])) {
-      $val_prog=$_POST['valeur_souhaitee'];
+      $val_prog=securite::sql($_POST['valeur_souhaitee']);
       if ($nomcapteur==="Luminosité") {
         $val_prog=conv_etat($val_prog);
       }
     } elseif (isset($_POST['etat_souhaite'])) {
-      $val_prog=$_POST['etat_souhaite'];
+      $val_prog=securite::sql($_POST['etat_souhaite']);
       $val_prog=conv_etat($val_prog);
     }
 
+  }
+
+  if (isset($_POST['supp_cap'])){
+    $r4 = $bdd->prepare("DELETE FROM capteur WHERE id_capteur = :idcapteur");
+    $r4->execute(array(':idcapteur' => $idcapteur));
+    header('Location : vue_piece.php',TRUE,301);
+    exit();
   }
 
 ?>

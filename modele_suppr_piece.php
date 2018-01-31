@@ -1,9 +1,10 @@
 <?php
 include("dbh.php");
+include("securite.php");
 
 /*Déclaration des variables utiles aux requêtes*/
-$idutilisateur=$_SESSION['id_personne'];
-$idmaison=$_SESSION['id_maison_choisie'];
+$idutilisateur=securite::sql($_SESSION['id_personne']);
+$idmaison=securite::sql($_SESSION['id_maison_choisie']);
 
 /*Requêtes*/
 $req1 = $bdd->query("SELECT * FROM maison WHERE id_utilisateur='$idutilisateur'");

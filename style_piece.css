@@ -119,21 +119,21 @@ h1{
 }
 
 .change_piece a:hover{
-	padding-left:11.7px;
-	padding-right:11.7px;
+	padding-left:14.2px;
+	padding-right:14.2px;
 }
 
 .ajout a:hover{
-	padding-left:9.6px;
-	padding-right:9.6px;
+	padding-left:13.7px;
+	padding-right:13.7px;
 }
 
 .add_piece a:hover{
-	padding-left:10.4px;
-	padding-right:10.4px;
+	padding-left:14px;
+	padding-right:14px;
 }
 
 .del_piece a:hover{
-	padding-left:10.02px;
-	padding-right:10.02px;
+	padding-left:14px;
+	padding-right:14px;
 }

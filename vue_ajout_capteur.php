@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device_width">
 		<link rel="stylesheet" href="style_ajout_capteur.css">
+		<link rel="stylesheet" href="footer.css">
     <title>Ajouter un capteur</title>
 	</head>
 
@@ -24,6 +25,7 @@
             </div>
 
         </section>
+				<div class="remplir_spe"></div>
     </body>
     <?php include("footer.php")?>
 </html>

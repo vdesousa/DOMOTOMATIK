@@ -1,12 +1,14 @@
 <?php
 session_start();
 include("dbh.php");
+include("securite.php");
+
 
 /*Initialisation des variables*/
-$idutilisateur=$_SESSION['id_personne'];
-$idmaison=$_SESSION['id_maison_choisie'];
-$nompiece=$_POST['piece'];
-$nomcapteur=$_POST['capteur'];
+$idutilisateur=securite::sql($_SESSION['id_personne']);
+$idmaison=securite::sql($_SESSION['id_maison_choisie']);
+$nompiece=securite::sql($_POST['piece']);
+$nomcapteur=securite::sql($_POST['capteur']);
 
 /*Requêtes préliminaires*/
 $r1 = $bdd->query("SELECT id_piece FROM piece WHERE id_maison='$idmaison' AND nom_de_piece='$nompiece'");

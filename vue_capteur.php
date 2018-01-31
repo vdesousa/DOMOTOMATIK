@@ -3,6 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<link rel="stylesheet" type="text/css" href="stylecapteur.css">
+		<link rel="stylesheet" href="footer.css">
 		<script type="text/javascript">
 			function Autotab(box, longueur, texte){
     		if (texte.length > longueur-1) {

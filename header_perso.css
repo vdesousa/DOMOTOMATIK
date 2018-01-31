@@ -2,6 +2,8 @@ header{
 	background:rgb(174,186,239);
 	max-height:200px;
 	display:flex;
+	margin:0;
+	padding:0;
 }
 header #logo{
 	margin:0;
@@ -32,6 +34,7 @@ header form{
 	margin:auto;
 	overflow:hidden;
 }
+
 .content{
 	margin:0;
 	padding:0;

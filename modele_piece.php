@@ -6,10 +6,13 @@ include('conversion_donnees.php');
 /*Connexion BDD*/
 include("dbh.php");
 
+/*Fonction sécurité*/
+include("securite.php");
+
 /*Récupération de l'id de l'utilisateur et de sa maison*/
-$iduser = $_SESSION['id_personne'];
-$idmaison = $_SESSION['id_maison_choisie'];
-$nompiece = $_SESSION['choix_piece'];
+$iduser = securite::sql($_SESSION['id_personne']);
+$idmaison = securite::sql($_SESSION['id_maison_choisie']);
+$nompiece = securite::sql($_SESSION['choix_piece']);
 
 /*Requête préalable : obtention de l'id de la pièce choisie*/
 

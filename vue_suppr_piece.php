@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device_width">
 		<link rel="stylesheet" href="style_ajout_capteur.css">
+    <link rel="stylesheet" href="footer.css">
     <title>Modifier une pièce</title>
   </head>
 
@@ -17,6 +18,7 @@
         </div>
       </form>
     </section>
+    <div class="remplir"></div>
   </body>
   <?php include("footer.php")?>
 

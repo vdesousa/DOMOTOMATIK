@@ -1,6 +1,9 @@
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Calibri, sans-serif;
+    font-weight: lighter;
     white-space: nowrap;
+    margin:0;
+    padding:0;
 }
 
 section{
@@ -37,6 +40,14 @@ select{
 
 .reference_produit{
     display:flex;
+}
+
+.remplir{
+  height: 117px;
+}
+
+.remplir_spe{
+  height: 15px;
 }
 
 .reference_produit input{
