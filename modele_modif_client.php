@@ -1,11 +1,10 @@
 <?php
-$requete=$bdd->prepare("UPDATE personne SET nom=:nom, prenom=:prenom, telephone=:telephone, email=:email, mot_de_passe=:mdp WHERE id_personne=$idpersonne");
+$requete=$bdd->prepare("UPDATE personne SET nom=:nom, prenom=:prenom, telephone=:telephone, email=:email WHERE id_personne=$idpersonne");
 $requete->execute(array(
   'nom'=>$_POST['nom'],
   'prenom'=>$_POST['prenom'],
   'telephone'=>$_POST['telephone'],
-  'email'=>$_POST['email'],
-  'mdp'=>$_POST['pass']
+  'email'=>$_POST['email']
 )); // On insère les données transmises par le formulaire qui correspondent à la table personne
 $requete->closeCursor();
 
