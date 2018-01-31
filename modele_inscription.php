@@ -1,4 +1,5 @@
 <?php
+include('dbh.php');
 $nom = $_POST['nom'];
 $prenom = $_POST['prenom'];
 $email = $_SESSION['email'];

@@ -6,24 +6,20 @@ if (isset($_POST['submit'])) {
 
   //erreurs
   if (empty($email) || empty($code)) {
-    header("Location: Enregistrement.php?champs=vides");
+    header("Location: vue_confirmation.php?champs=vides");
     exit();
   } else {
-    // $sql = "SELECT * FROM confirmation WHERE confirmation_email=$email";
-    // $result = $mysqli->escape_string($sql);
-    // $resultCheck = mysqli_num_rows($sql);
-
     if (count($res1) < 1) {
-      header("Location: Enregistrement.php?confirmation=erreur");
+      header("Location: vue_confirmation.php?confirmation=erreur");
       exit();
     } else {
         if ($code != $res1[0]["code"]) {
-          header("Location: Enregistrement.php?code=faux");
+          header("Location: vue_confirmation.php?code=faux");
           exit();
         } elseif($code == $res1[0]["code"]) {
           //commencer Enregistrement
           $_SESSION['email'] = $email;
-          header("Location: Enregistrement2.php");
+          header("Location: vue_inscription.php");
           exit();
         }
       }
@@ -31,7 +27,7 @@ if (isset($_POST['submit'])) {
   }
 
 else {
-  header("Location: Enregistrement.php");
+  header("Location: vue_confirmation.php");
   exit();
 }
 ?>

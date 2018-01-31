@@ -1,40 +1,48 @@
-body{
-	padding:0;
-	margin:0;
-	min-height: 100vh;
-}
 .container{
 	width:90%;
 	margin:auto;
 	overflow:hidden;
 }
-header{
-	background:rgb(174,186,239);
-	max-height:200px;
+.content{
+	height:750px;
+}
+.content h1{
+	text-align:center;
+	font-size:50px;
+}
+.accueil h1 {
+	text-align:center;
+	font-size:50px;
+}
+.accueil ul {
+	margin-left:200px;
 	display:flex;
+	flex-wrap:wrap;
+	list-style-type: none;
 }
-header #logo{
-	margin:0;
-	float:left;
-	height:90px;
-	width:90px;
+.accueil li{
+	margin-top:50px;
+	margin-right:150px;
+	width:200px;
+	height:200px;
+	text-align:center;
+	padding-bottom: 50px;
+
 }
-#logo img{
+.accueil p{
+	font-size: 20px;
+	text-align: center;
+}
+.accueil li img{
 	height:100%;
 	width:100%;
 }
-header #recherchedeco{
-	margin-top:10px;
-	float:right;
-}
-header #recherchedeco a{
+.accueil li a{
 	text-decoration:none;
-	color:#ffffff;
-	margin-left:20px;
-	margin-top:10px;
+	color:black;
 }
-header form{
-	margin-top:30px;
+.photoaccueil{
+	margin-left:570px;
 }
 .content{
 	margin:0;
@@ -43,11 +51,47 @@ header form{
 	min-height: calc(100vh - 400px);
 }
 
-.content h1{
-	text-align:center;
-	font-size:50px;
+.descriptionc img{
+	margin-top: 50px;
+	margin-left: 200px;
+	float:left;
+	}
+.descriptionp{
+	float: left;
+  padding: 0 20px 20px 0;
+	margin-left:200px;
+	width:350px;
+	height:350px;
+
 }
-.content ul{
+.descriptionc p{
+
+margin-left:100px;
+margin-top:30px;
+width:600px;
+}
+.content form{
+	margin-left:800px;
+}
+.content a{
+	text-decoration: none;
+	color:black;
+}
+.content label
+{
+	display: block;
+	width: 200px;
+	float: left;
+}
+.bouton{
+	margin-left:150px;
+}
+.erreur{
+	font-size:15px;
+	color: red;
+	margin-left: 100px;
+}
+/* .content ul{
 	margin-left:200px;
 	display:flex;
 	flex-wrap:wrap;
@@ -59,8 +103,8 @@ header form{
 	width:200px;
 	height:200px;
 	text-align:center;
-}
-.content li img{
+} */
+/* .content li img{
 	height:100%;
 	width:100%;
 }
@@ -69,19 +113,19 @@ header form{
 	color:black;
 }
 .description{
-    float: left;
-    padding: 0 20px 20px 0;
+  float: left;
+  padding: 0 20px 20px 0;
 	margin-left:200px;
 	width:350px;
 	height:350px;
-}
-.content p{
+} */
+/* p .description{
 	float:left;
 	margin-left:100px;
 	margin-top:30px;
 	width:600px;
-}
-.confirmation {
+} */
+/* .confirmation {
 	margin-left: auto;
 	margin-top: 200px;
 	text-align: center;
@@ -122,40 +166,9 @@ header form{
 	margin-top: 100px;
 	text-align: center;
 }
-.erreur{
-	font-size:20px;
-	color: red;
-}
+
 p{
 	font-size: 20px;1
 	color: red;
 	text-align: center;
-}
-
-
-footer ul
-{
-	display: flex;
-	flex-direction: row;
-	justify-content: space-around;
-	list-style-type: none;
-}
-
-footer ul li
-{
-	margin-right: 50px;
-	white-space: nowrap;
-}
-
-footer ul li a
-{
-	color: white;
-	text-decoration: none;
-}
-footer{
-	display: inline-block;
-	margin-bottom: 0;
-	min-width: 100%;
-	height: 100px;
-	background-color: rgb(72,69,70);
-}
+} */
