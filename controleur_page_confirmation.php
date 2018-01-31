@@ -5,7 +5,7 @@ session_start();
 if (isset($_POST['submit'])) {
     include("dbh.php");}
     else {
- header("Location: page_confirmation.php");
+ header("Location: vue_confirmation.php");
  exit();
 }
 
@@ -16,7 +16,7 @@ if (isset($_POST['submit'])) {
   $res1 = $req1->fetchAll();
   $nbr = count($res1);
   if ($nbr > 0) {
-    header("Location: page_confirmation.php?email=existant");
+    header("Location: vue_confirmation.php?email=existant");
     exit();
   }
   $req2 = $bdd->query("SELECT * FROM confirmation WHERE code = '$code'");
@@ -27,7 +27,7 @@ if (isset($_POST['submit'])) {
   }
 
   if (empty($email)) {
-    header("Location: page_confirmation.php?champs=vides");
+    header("Location: vue_confirmation.php?champs=vides");
     exit();
   } else {
     $req = $bdd->prepare("INSERT INTO confirmation(email, code) VALUES(:email, :code)");
@@ -35,7 +35,7 @@ if (isset($_POST['submit'])) {
       'email' => $email,
       'code' => $code,
       ));
-      header("Location: page_confirmation.php");
+      header("Location: vue_inscription.php");
       exit();
     }
 
