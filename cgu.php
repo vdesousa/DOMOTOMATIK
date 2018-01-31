@@ -1,27 +1,14 @@
 <?php
-require('modele_cgu.php');
-include('header3.0.php');
-include('footer.php');
-
-
+require('controleur_documents_juridiques.php');
+include('header_admin.php');
 ?>
 
 
 
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>CGU</title>
-	<link rel="stylesheet" type="text/css" href="styletdb.css">
-</head>
-<body>
-	<section>
 <style>
 section
 {
 	width: 100%;
-	position: absolute;
 	bottom: 10%;
 }
 
@@ -29,25 +16,40 @@ textarea
 {
 	display: inline-block;
 	margin-left: 65px;
+	margin-top: 20px;
 	width: 90%;
 	height: 500px;
 }
 input[type="submit"]
 {
-	position: absolute;
-	left: 60px;
+	margin-left: 60px;
 }
 </style>
+
+<!-- ................................................................................. -->
+
+<title>CGU</title>
+
+	<section>
+
 	<h1>Conditions Générales d'Utilisation</h1>
-	<form action="cgu.php" method="post">
-		<textarea name="cgu">
-<?php $showCGU=$pdo->query('SELECT contenu FROM documents_juridiques WHERE nom=\'CGU\'');
-			$insertCGU=$showCGU->fetch();
-			echo $insertCGU['contenu'] ;
-?>
-</textarea></br>
-		<input type="submit" name="register" value="Enregistrer"/>
-	</form>
+
+		<form action="espace_administrateur.php" method="post">
+			<textarea name="cgu">
+				<?php $showCGU=$bdd->query('SELECT contenu FROM documents_juridiques WHERE nom=\'CGU\'');
+							$insertCGU=$showCGU->fetch();
+							echo $insertCGU['contenu'] ;
+							?>
+						</textarea></br>
+
+						<input type="submit" name="register" value="Enregistrer" onclick="modifierCgu()"/>
+		</form>
 	</section>
-</body>
-</html>
+
+	<script>
+	function modifierCgu(){
+		alert('La modification a bien été prise en compte.');
+	}
+	</script>
+
+<?php include('footer.php'); ?>
