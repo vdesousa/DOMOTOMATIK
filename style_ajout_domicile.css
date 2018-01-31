@@ -1,3 +1,9 @@
+*
+{
+  font-family: calibri,sans-serif;
+  font-weight:lighter;
+  white-space:nowrap;
+}
 section
 {
   background-color:#EFE3AF;
@@ -7,6 +13,7 @@ section
   border: solid 1px black;
   margin-top:100px;
   padding-top:15px;
+  margin-bottom:112px;
 }
 
 section h2

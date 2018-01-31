@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device_width">
-		<link rel="stylesheet" type="text/css" href="styletdb.css">
+		<link rel="stylesheet" type="text/css" href="espace_administrateur.css">
 	</head>
 	<body>
 		<header>
@@ -43,11 +43,9 @@
         </div>
   		<script>
   		    function openSlideMenu(){document.getElementById('side-menu').style.width = '250px';}
-     
+
 
     		function closeSlideMenu(){document.getElementById('side-menu').style.width = '0';}
 
  		</script>
  		<div class="content">
- 		
- 		

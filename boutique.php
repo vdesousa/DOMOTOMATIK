@@ -1,10 +1,5 @@
 <?php include("headerhc.php") ?>
-<?php   try{
-    $bdd = new PDO('mysql:host=localhost;dbname=bdd_5e;charset=utf8', 'root', 'root');
-  }
-  catch (Exception $e){
-    die('Erreur : '.$e->getMessage());
-  }
+<?php   include("dbh.php")
   $req1 = $bdd->query("SELECT `nom_objet`, `photo` FROM `boutique`");
   $res1 = $req1->fetchAll();
   ?>
@@ -17,7 +12,7 @@
       $nomobj = $res1[$nbrcapt]['nom_objet'];
       $photo = $res1[$nbrcapt]['photo'];
     	echo '<li><a href="'.$nomobj.'php"><img src='.$photo.'><br><span>'.$nomobj.'</span></a></li>';
-      $nbrcapt -=1; }
+      $nbrcapt -=1; };
   ?>
 </ul>
 
