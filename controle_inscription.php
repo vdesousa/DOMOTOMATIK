@@ -15,29 +15,29 @@ if (isset($_POST['submit'])) {
     } else {
       //caractères valides
               if (!preg_match("/^[a-zA-Z ]*$/", $nom) || !preg_match("/^[a-zA-Z ]*$/", $prenom)) {
-                  header("Location: Enregistrement2.php?enregistrement=invalidenoms");
+                  header("Location: vue_inscription.php?enregistrement=invalidenoms");
                   exit();
               } else {
                     if (!preg_match("/^[0-9]*$/", $numero)) {
-                    header("Location: Enregistrement2.php?enregistrement=invalidetel");
+                    header("Location: vue_inscription.php?enregistrement=invalidetel");
                     exit();
                 } else {
                   if (!preg_match("/^[a-zA-Z0-9 ]*$/", $adresse)) {
-                    header("Location: Enregistrement2.php?enregistrement=invalideadr");
+                    header("Location: vue_inscription.php?enregistrement=invalideadr");
                     exit();
                   } else {
                     if (!preg_match("/^[0-9]*$/", $codepostal)) {
-                      header("Location: Enregistrement2.php?enregistrement=invalidecp");
+                      header("Location: vue_inscription.php?enregistrement=invalidecp");
                       exit();
                     } else {
                       if (!preg_match("/^[a-zA-Z -]*$/", $ville)) {
-                        header("Location: Enregistrement2.php?enregistrement=invalidevil");
+                        header("Location: vue_inscription.php?enregistrement=invalidevil");
                         exit();
                       } else {                  }
 
                       // mot de passe égaux
                       if ($password != $passwordconfirmation) {
-                        header("Location: Enregistrement2.php?enregistrement=mdp");
+                        header("Location: vue_inscription.php?enregistrement=mdp");
                         exit();
                     } else {
                   if (isset($_POST['CGU'])) {
@@ -68,12 +68,12 @@ if (isset($_POST['submit'])) {
                           ));
                           session_destroy();
                           // if ($req->execute()) {
-                          header("Location: Enregistrement2.php?enregistrement=succes");
+                          header("Location: boutique.php?enregistrement=succes");
                           exit();
                         // } else {header("Location: Enregistrement2.php?enregistrement=erreur");
                         // exit();}
                   } else {
-                    header("Location: Enregistrement2.php?enregistrement=CGU");
+                    header("Location: vue_inscription.php?enregistrement=CGU");
                     exit();
                   }
                 }

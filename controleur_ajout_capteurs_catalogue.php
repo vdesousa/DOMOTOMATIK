@@ -1,54 +1,35 @@
 <?php
-if isset($_POST['submit']){
-  include('dbh.php');
-  $nom=$_POST['photo'];
+if (isset($_POST['submit'])){
+  include('dbh.php');}
+  $nom=$_POST['nom'];
   $description=$_POST['description'];
   $type=$_POST['type'];
   $prix=$_POST['prix'];
   if ($type=="Température"){
     $photo="temperature";
-  } else {
-    if ($type=="Luminosité"){
+  } elseif ($type=="Luminosité"){
       $photo="luminosite";
-    } else {
-      if ($type=="Humidité"){
+    } elseif ($type=="Humidité"){
         $photo="humidite";
-      } else {
-        if ($type=="Présence"){
+      } elseif ($type=="Présence"){
           $photo="presence";
-        } else {
-          if ($type=="Fenêtre"){
+        } elseif ($type=="Fenêtre"){
             $photo="fenetre";
-          } else {
-            if ($type=="Détecteur de gaz") {
+          } elseif ($type=="Détecteur de gaz") {
               $photo="detecteur";
-            } else {
-              if ($type=="Volets") {
+            } elseif ($type=="Volets") {
                 $photo="volets";
-              } else {
-                if ($type=="Caméra"){
+              } elseif ($type=="Caméra"){
                   $photo="camera";
-                } else {
-                  if ($type=="Alarme"){
+                } elseif ($type=="Alarme"){
                     $photo="alarme";
-                  } else {
-                    if ($type=="Porte"){
+                  } elseif ($type=="Porte"){
                       $photo="porte";
-
-                    } else {
-                      if ($type=="CeMAC"){
+                    } elseif ($type=="CeMAC"){
                         $photo="Cemac";
                       }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        }
-      }
-    }
-  };
+              ;
+echo $nom;
   $req = $bdd->prepare("INSERT INTO boutique(nom_objet, description, type, prix, photo) VALUES(:nom, :description, :type, :prix, :photo)");
   $req->execute(array(
     'nom' => $nom,
@@ -59,6 +40,6 @@ if isset($_POST['submit']){
     ));
     header("Location: gestion_catalogue_admin.php");
     exit();
-}
+
 
 ?>

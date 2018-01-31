@@ -1,8 +1,11 @@
 <?php include("headerhc.php") ?>
 <?php   include("dbh.php");
-  $req1 = $bdd->query("SELECT `id_objet`, `nom_objet`, `photo` FROM `boutique`");
+  $req1 = $bdd->query("SELECT `nom_objet`, `photo` FROM `boutique`");
   $res1 = $req1->fetchAll();
   ?>
+<h1>Bienvenue sur DOMOTOMATIK</h1>
+<img src='photoaccueil.jgp' />
+<p>Le site de DOMOTOMATIK a pour but de connecter votre maison de façon simple et efficace. Vous pourrez contrôler votre maison grâce aux CeMACs de DOMISEP, qui rendront votre vie plus agrèable.</p>
 <h1>Catalogue</h1>
 <ul>
   <?php
@@ -11,8 +14,7 @@
   while ($nbrcapt !=-1) {
       $nomobj = $res1[$nbrcapt]['nom_objet'];
       $photo = $res1[$nbrcapt]['photo'];
-      $id = $res1[$nbrcapt]['id_objet'];
-    	echo '<li><a href="description.php?capteur='.$id.'"><img src='.$photo.'.jpg"><br><span>'.$nomobj.'</span></a></li>';
+    	echo '<li><a href="'.$nomobj.'php"><img src='.$photo.'><br><span>'.$nomobj.'</span></a></li>';
       $nbrcapt -=1; };
   ?>
 </ul>
