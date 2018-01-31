@@ -1,4 +1,4 @@
-<?php include("headerhc.php") ?>
+<?php include("headeradmin.php")?>
 <?php   include("dbh.php");
   $req1 = $bdd->query("SELECT `id_objet`, `nom_objet`, `photo` FROM `boutique`");
   $res1 = $req1->fetchAll();
@@ -12,7 +12,7 @@
       $nomobj = $res1[$nbrcapt]['nom_objet'];
       $photo = $res1[$nbrcapt]['photo'];
       $id = $res1[$nbrcapt]['id_objet'];
-    	echo '<li><a href="description.php?capteur='.$id.'"><img src='.$photo.'.jpg"><br><span>'.$nomobj.'</span></a></li>';
+    	echo '<li><a href="modification_capteur.php?capteur='.$id.'"><img src='.$photo.'.jpg"><br><span>'.$nomobj.'</span></a></li>';
       $nbrcapt -=1; };
   ?>
 </ul>
