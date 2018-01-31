@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:8889
--- Generation Time: Jan 15, 2018 at 01:07 PM
+-- Generation Time: Jan 31, 2018 at 06:40 PM
 -- Server version: 5.6.34-log
 -- PHP Version: 7.1.5
 
@@ -44,17 +44,15 @@ CREATE TABLE `achat` (
 
 CREATE TABLE `administrateur` (
   `id_administrateur` int(11) NOT NULL,
-  `disponibilite` tinyint(1) NOT NULL,
-  `email` text NOT NULL,
-  `password` text NOT NULL
+  `disponibilite` tinyint(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `administrateur`
 --
 
-INSERT INTO `administrateur` (`id_administrateur`, `disponibilite`, `email`, `password`) VALUES
-(1, 0, 'admin1@isep.fr', 'admin1');
+INSERT INTO `administrateur` (`id_administrateur`, `disponibilite`) VALUES
+(1, 0);
 
 -- --------------------------------------------------------
 
@@ -111,6 +109,13 @@ CREATE TABLE `boutique` (
   `description` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `boutique`
+--
+
+INSERT INTO `boutique` (`id_objet`, `nom_objet`, `type`, `prix`, `description`) VALUES
+(1, 'temp', 'capteur', 12, '123121312');
+
 -- --------------------------------------------------------
 
 --
@@ -133,11 +138,24 @@ CREATE TABLE `capteur` (
 
 INSERT INTO `capteur` (`id_capteur`, `id_utilisateur`, `id_cemac`, `id_piece`, `type`, `valeur_temps_reel`, `allume_ou_eteint`) VALUES
 (1, 1, 153, 1, 'Température', 23, 1),
-(2, 1, 153, 1, 'Luminosité', 40, 1),
+(2, 1, 153, 1, 'Luminosité', 3, 1),
 (3, 1, 153, 1, 'Présence', 0, 1),
 (4, 1, 152, 1, 'Volets', 1, 1),
 (5, 2, 178, 52, 'Température', 27, 1),
-(6, 1, 152, 2, 'Alarme', 0, 1);
+(6, 1, 152, 2, 'Alarme', 1, 1),
+(10, 1, 153, 1, 'Caméra', 1, 1),
+(11, 1, 153, 1, 'Porte', 0, 1),
+(12, 1, 153, 2, 'Volets', 0, 1),
+(13, 2, 153, 29, 'Température', 0, 1),
+(14, 2, 153, 32, 'Température', 0, 1),
+(15, 2, 153, 34, 'Porte', 0, 1),
+(16, 2, 153, 7, 'Alarme', 0, 1),
+(17, 2, 153, 7, 'Luminosité', 0, 1),
+(18, 2, 153, 10, 'Alarme', 0, 1),
+(19, 2, 153, 10, 'Humidité', 0, 0),
+(20, 2, 153, 10, 'Température', 21, 1),
+(21, 2, 153, 10, 'Luminosité', 1, 1),
+(22, 2, 153, 10, 'Caméra', 0, 1);
 
 -- --------------------------------------------------------
 
@@ -147,15 +165,23 @@ INSERT INTO `capteur` (`id_capteur`, `id_utilisateur`, `id_cemac`, `id_piece`, `
 
 CREATE TABLE `cemac` (
   `id_cemac` int(11) NOT NULL,
-  `id_maison` int(11) NOT NULL
+  `id_maison` int(11) NOT NULL,
+  `id_appareil_1` int(11) DEFAULT NULL,
+  `id_appareil_2` int(11) DEFAULT NULL,
+  `id_appareil_3` int(11) DEFAULT NULL,
+  `id_appareil_4` int(11) DEFAULT NULL,
+  `id_appareil_5` int(11) DEFAULT NULL,
+  `id_appareil_6` int(11) DEFAULT NULL,
+  `id_appareil_7` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `cemac`
 --
 
-INSERT INTO `cemac` (`id_cemac`, `id_maison`) VALUES
-(153, 27);
+INSERT INTO `cemac` (`id_cemac`, `id_maison`, `id_appareil_1`, `id_appareil_2`, `id_appareil_3`, `id_appareil_4`, `id_appareil_5`, `id_appareil_6`, `id_appareil_7`) VALUES
+(152, 27, 4, 6, NULL, NULL, NULL, NULL, NULL),
+(153, 27, 1, 2, 3, NULL, NULL, NULL, NULL);
 
 -- --------------------------------------------------------
 
@@ -182,6 +208,16 @@ CREATE TABLE `confirmation` (
   `email` text NOT NULL,
   `code` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `confirmation`
+--
+
+INSERT INTO `confirmation` (`id`, `email`, `code`) VALUES
+(1, 'vacs96@hotmail.com', '123456'),
+(2, 'lucas.darlavoix@orange.fr', '131313'),
+(3, 'zdfzezfd@hotmail.com', '123456'),
+(4, 'azerty@uiop.fr', '979036');
 
 -- --------------------------------------------------------
 
@@ -239,8 +275,8 @@ CREATE TABLE `maison` (
 --
 
 INSERT INTO `maison` (`id_maison`, `id_utilisateur`, `numero`, `rue`, `complement`, `code_postal`, `ville`, `pays`) VALUES
-(27, 1, 100, 'avenue du Maine', 'Résidence Phoenix', 75000, 'Paris', 'France'),
-(28, 1, 18, 'rue de la Paix', '', 28400, 'Nogent-le-Rotrou', 'France');
+(28, 2, 6, 'rue de la Lune de Chalval', '', 75006, 'Paris', 'France'),
+(29, 2, 120, 'rue de la Rue', '', 57250, 'Froidcul', 'France');
 
 -- --------------------------------------------------------
 
@@ -254,6 +290,14 @@ CREATE TABLE `pannes` (
   `rapport_erreur` varchar(255) NOT NULL,
   `date_panne` datetime NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `pannes`
+--
+
+INSERT INTO `pannes` (`id_panne`, `id_capteur`, `rapport_erreur`, `date_panne`) VALUES
+(1, 1, 'Défaillance du capteur de température ', '2017-12-15 14:30:16'),
+(2, 2, 'Défaillance du capteur d\'humidité', '2017-12-06 06:44:17');
 
 -- --------------------------------------------------------
 
@@ -270,6 +314,13 @@ CREATE TABLE `parametrer` (
   `valeur_souhaitee` float NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `parametrer`
+--
+
+INSERT INTO `parametrer` (`id`, `id_utilisateur`, `id_capteur`, `heure_debut`, `heure_fin`, `valeur_souhaitee`) VALUES
+(1, 1, 1, '07:00:00', '10:00:00', 1);
+
 -- --------------------------------------------------------
 
 --
@@ -282,16 +333,23 @@ CREATE TABLE `personne` (
   `nom` varchar(255) NOT NULL,
   `telephone` int(20) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `mot_de_passe` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL
+  `mot_de_passe` varchar(255) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `adresse_postale` varchar(255) NOT NULL,
+  `ville` varchar(255) NOT NULL,
+  `code_postal` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `personne`
 --
 
-INSERT INTO `personne` (`id_personne`, `prenom`, `nom`, `telephone`, `email`, `mot_de_passe`) VALUES
-(1, 'azerty', 'uiop', 606060606, 'azerty@uiop.fr', 'azerty'),
-(2, 'Pierre', 'Martin', 601020304, 'pierremartin@mail.com', 'azertyuiop');
+INSERT INTO `personne` (`id_personne`, `prenom`, `nom`, `telephone`, `email`, `mot_de_passe`, `adresse_postale`, `ville`, `code_postal`) VALUES
+(1, 'azerty', 'uiop', 606060606, 'azerty@uiop.fr', 'azerty', '', '', ''),
+(2, 'Pierre', 'Martin', 601020304, 'pierremartin@mail.com', 'azertyuiop', '', '', ''),
+(3, 'Lucas', 'DARLAVOIX', 667026654, 'vacs96@hotmail.com', '$2y$10$xsvXf2OF748git3N1L6JMeMkGvYTfw37qiuUSTKzM2I252pwjEEpS', '', '', ''),
+(4, 'jean', 'nemarre', 0, 'vacs96@hotmail.com', '$2y$10$DiLSL.yW4YVqGZy1iW8lu.ZzjNBDba83RzGT/znpks1ccU.qR5cki', '', '', ''),
+(5, 'poiuytreza', 'azertyuiop', 2147483647, 'lucas.darlavoix@orange.fr', '$2y$10$ModsdVL.Po9qBiSDZLxfGefjeDl0.sKl/wGCUUgms4hPP21At5wYG', '', '', ''),
+(6, 'poiuytreza', 'azertyuiop', 2147483647, 'lucas.darlavoix@orange.fr', '$2y$10$pN7GqBW4vcBQdYy5aY5XcOOBMIqrip1IY3F0KQIxjQB1h6zmjtkKe', '', '', '');
 
 -- --------------------------------------------------------
 
@@ -302,19 +360,21 @@ INSERT INTO `personne` (`id_personne`, `prenom`, `nom`, `telephone`, `email`, `m
 CREATE TABLE `piece` (
   `id_piece` int(11) NOT NULL,
   `id_maison` int(11) NOT NULL,
-  `nom_de_piece` varchar(255) NOT NULL
+  `nom_de_piece` varchar(255) NOT NULL,
+  `complement` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Dumping data for table `piece`
 --
 
-INSERT INTO `piece` (`id_piece`, `id_maison`, `nom_de_piece`) VALUES
-(1, 27, 'Salon'),
-(2, 27, 'Cuisine'),
-(3, 27, 'Chambre 1'),
-(4, 27, 'Chambre 2'),
-(5, 20, 'Salon');
+INSERT INTO `piece` (`id_piece`, `id_maison`, `nom_de_piece`, `complement`) VALUES
+(3, 27, 'Chambre 1', ''),
+(4, 27, 'Chambre 2', ''),
+(7, 29, 'Garage', ''),
+(10, 28, 'Auditorium', ''),
+(11, 28, 'Bureau', ''),
+(13, 28, 'Salle de bain', '');
 
 -- --------------------------------------------------------
 
@@ -406,15 +466,25 @@ INSERT INTO `type_piece` (`id`, `nom_piece`) VALUES
 CREATE TABLE `utilisateur` (
   `id_utilisateur` int(11) NOT NULL,
   `id_personne` int(11) NOT NULL,
-  `newsletter` tinyint(1) NOT NULL,
+  `newsletter` text NOT NULL,
   `date_adhesion` date NOT NULL,
   `photo` varchar(255) NOT NULL,
   `acces_rapide_1` int(11) NOT NULL,
   `acces_rapide_2` int(11) NOT NULL,
   `acces_rapide_3` int(11) NOT NULL,
   `acces_rapide_4` int(11) NOT NULL,
-  `acces_rapide_5` int(11) NOT NULL
+  `acces_rapide_5` int(11) NOT NULL,
+  `adresse` text NOT NULL,
+  `codepostal` text NOT NULL,
+  `ville` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Dumping data for table `utilisateur`
+--
+
+INSERT INTO `utilisateur` (`id_utilisateur`, `id_personne`, `newsletter`, `date_adhesion`, `photo`, `acces_rapide_1`, `acces_rapide_2`, `acces_rapide_3`, `acces_rapide_4`, `acces_rapide_5`, `adresse`, `codepostal`, `ville`) VALUES
+(1, 3, 'non', '2018-01-19', '', 0, 0, 0, 0, 0, 'Avenue General Estienne', '06000', 'NICE');
 
 --
 -- Indexes for dumped tables
@@ -562,12 +632,12 @@ ALTER TABLE `bilan_de_consommation`
 -- AUTO_INCREMENT for table `boutique`
 --
 ALTER TABLE `boutique`
-  MODIFY `id_objet` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_objet` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `capteur`
 --
 ALTER TABLE `capteur`
-  MODIFY `id_capteur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_capteur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 --
 -- AUTO_INCREMENT for table `cemac`
 --
@@ -582,7 +652,7 @@ ALTER TABLE `communiquer`
 -- AUTO_INCREMENT for table `confirmation`
 --
 ALTER TABLE `confirmation`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `documents_juridiques`
 --
@@ -597,27 +667,27 @@ ALTER TABLE `editer`
 -- AUTO_INCREMENT for table `maison`
 --
 ALTER TABLE `maison`
-  MODIFY `id_maison` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_maison` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
 --
 -- AUTO_INCREMENT for table `pannes`
 --
 ALTER TABLE `pannes`
-  MODIFY `id_panne` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_panne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT for table `parametrer`
 --
 ALTER TABLE `parametrer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT for table `personne`
 --
 ALTER TABLE `personne`
-  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_personne` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `piece`
 --
 ALTER TABLE `piece`
-  MODIFY `id_piece` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_piece` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 --
 -- AUTO_INCREMENT for table `type_capteur`
 --
@@ -632,7 +702,7 @@ ALTER TABLE `type_piece`
 -- AUTO_INCREMENT for table `utilisateur`
 --
 ALTER TABLE `utilisateur`
-  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT;COMMIT;
+  MODIFY `id_utilisateur` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
