@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device_width">
-		<link rel="stylesheet" type="text/css" href="styletdb.css">
+		<link rel="stylesheet" type="text/css" href="admin.css">
 	</head>
 	<body>
 		<header>
