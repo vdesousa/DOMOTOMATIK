@@ -1,7 +1,7 @@
 body{
 	padding:0;
 	margin:0;
-	background-color:#f4f4f4;	
+	background-color:#f4f4f4;
 }
 .container{
 	width:90%;
@@ -46,7 +46,7 @@ header form{
 .acces_rapide p
 {
 	font-size:120%;
-	font-family:Arial, Helvetica, sans-serif; 
+	font-family:Arial, Helvetica, sans-serif;
 	text-align: center;
 	text-decoration: none;
 	margin-bottom: 50px;
@@ -57,9 +57,9 @@ header form{
 {
     color: black;
     font-family: Arial, Helvetica, sans-serif;
-    font-size:90%;	
+    font-size:90%;
     text-decoration: none;
-    border: 1px solid black; 
+    border: 1px solid black;
     border-radius: 3px;
     background-color: rgb(238,227,181);
 	padding-top: 4%;
@@ -195,4 +195,3 @@ figure a
 {
     margin-left:50px;
 }
-
