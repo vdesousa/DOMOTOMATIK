@@ -43,10 +43,10 @@ function conversion($var, $var2){
   }
   if ($var2==="Volets") {
     if ($var==0) {
-      $var3="Non programmés";
+      $var3="Fermés";
     }
     elseif ($var==1) {
-      $var3="Programmés";
+      $var3="Ouverts";
     }
     return $var3;
   }

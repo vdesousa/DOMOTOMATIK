@@ -36,7 +36,9 @@
       <p>Sélectionner un domicile :</p>
 
       <form action="modele_ajout_piece_bdd.php" method="post">
-          <input type="hidden" name="choix_piece" value=<?php echo $_SESSION['choix_piece']; ?>>
+        <?php if (isset($_SESSION['choix_piece'])) { ?>
+            <input type="hidden" name="choix_piece" value=<?php echo $_SESSION['choix_piece']; ?>>
+        <?php } ?>
               <select name="domicile" size="1">
                 <option>--- Sélectionner un domicile ---</option>
 
