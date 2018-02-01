@@ -3,38 +3,15 @@ require('controleur_documents_juridiques.php');
 include('header_admin.php');
 ?>
 
-
+<link rel="stylesheet" type="text/css" href="style_admin.css">
 <title>FAQ</title>
 
-
-<style>
-section
-{
-	width: 100%;
-	bottom: 10%;
-}
-
-textarea
-{
-	display: inline-block;
-	margin-left: 65px;
-	margin-top:50px;
-	width: 90%;
-	height: 500px;
-}
-input[type="submit"]
-{
-	margin-left: 60px;
-}
-</style>
-
-<!-- .........................................................................................  -->
 
 <section>
 
 	<h1>Foire aux Questions</h1>
 
-		<form action="espace_administrateur.php" method="post">
+		<form action="faq.php" method="post">
 			<textarea name="faq">
 				<?php $showFaq=$bdd->query('SELECT contenu FROM documents_juridiques WHERE nom=\'FAQ\'');
 							$insertFaq=$showFaq->fetch();

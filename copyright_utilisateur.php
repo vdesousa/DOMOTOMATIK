@@ -3,19 +3,7 @@ require('controleur_documents_juridiques.php');
 include('header_admin.php');
 ?>
 
-<style>
-
-	#copyright
-	{
-		max-height: 500px;
-		margin-top: 250px;
-		margin-left: 550px;
-	}
-
-</style>
-
-<!-- ......................................................................................... -->
-
+<link rel="stylesheet" type="text/css" href="style_admin.css">
 <title>Copyright</title>
 
 	<section>

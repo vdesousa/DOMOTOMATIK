@@ -3,38 +3,14 @@ require('controleur_documents_juridiques.php');
 include('header_admin.php');
 ?>
 
-
-
-<style>
-section
-{
-	width: 100%;
-	bottom: 10%;
-}
-
-textarea
-{
-	display: inline-block;
-	margin-left: 65px;
-	margin-top: 20px;
-	width: 90%;
-	height: 500px;
-}
-input[type="submit"]
-{
-	margin-left: 60px;
-}
-</style>
-
-<!-- ................................................................................. -->
-
+<link rel="stylesheet" type="text/css" href="style_admin.css">
 <title>CGU</title>
 
 	<section>
 
 	<h1>Conditions Générales d'Utilisation</h1>
 
-		<form action="espace_administrateur.php" method="post">
+		<form action="cgu.php" method="post">
 			<textarea name="cgu">
 				<?php $showCGU=$bdd->query('SELECT contenu FROM documents_juridiques WHERE nom=\'CGU\'');
 							$insertCGU=$showCGU->fetch();

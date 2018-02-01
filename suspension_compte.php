@@ -1,26 +1,9 @@
 <?php
 session_start();
-$_SESSION['id_utilisateur']=$_GET['suspension'];
 include('header_admin.php');
 ?>
 
-
-
-<style>
-
-#suspension_compte
-{
-	width: 300px;
-	margin-left: 39%;
-	margin-top: 10%;
-	border: 1px solid black;
-	border-radius: 4px;
-	padding: 5px;
-}
-</style>
-
-<!-- ................................................................................. -->
-
+<link rel="stylesheet" type="text/css" href="style_admin.css">
 <title>Suspension du compte client</title>
 
 	<section>
