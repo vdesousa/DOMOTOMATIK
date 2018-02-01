@@ -24,9 +24,6 @@
 			</div>
 			<div id="recherchedeco">
 				<a href="boutique.php">Se déconnecter</a>
-				<form>
-					<input type="text" name="barre_recherche" placeholder="Rechercher..." />
-				</form>
 			</div>
 		</div>
 	</header>
