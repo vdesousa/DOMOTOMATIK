@@ -30,4 +30,4 @@ include('header_admin.php');
 	}
 	</script>
 
-<?php include('footer.php'); ?>
+<?php include('footer_admin.php'); ?>
