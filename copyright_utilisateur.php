@@ -1,6 +1,6 @@
 <?php
 require('controleur_documents_juridiques.php');
-include('header_admin.php');
+include('header_perso.php');
 ?>
 
 <style>
