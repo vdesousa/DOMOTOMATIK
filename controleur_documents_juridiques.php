@@ -2,7 +2,7 @@
   require_once('dbh.php');
 
 
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['register'])) {
   if (isset($_POST['cgu'])) {
     $insertCGU =$bdd->prepare('UPDATE documents_juridiques SET contenu=:content WHERE nom=\'CGU\'');
     $insertCGU->execute(array('content'=>$_POST['cgu']));

@@ -1,19 +1,9 @@
 <?php
 require('controleur_documents_juridiques.php');
-include('header_perso.php'); ?>
+include('header_admin.php'); ?>
 
-<style>
-	#cgu
-	{
-			min-height: 2000px;
-			margin-top: 100px;
-			margin-bottom: 50px;
-			margin-left: 15px;
-	}
-</style>
 
-<!-- ....................................................................................... -->
-
+<link rel="stylesheet" type="text/css" href="style_admin.css">
 <title>CGU</title>
 
 	<section>

@@ -4,7 +4,6 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device_width">
 		<link rel="stylesheet" type="text/css" href="admin.css">
-		<link rel="stylesheet" type="text/css" href="footer.css">
 	</head>
 	<body>
 		<header>
@@ -35,8 +34,7 @@
                 <a class="mon_profil" href="#" style="white-space: nowrap;">Toan DANG NGOC</a>
                 <ul style="list-style-type: none;">
                 	<li><a href="send_message.php" style="white-space: nowrap;">Envoyer un message</a></li>
-                	<li><a href="vue_gestion_catalogue_admin.php" style="white-space: nowrap">Modifier le catalogue</a></li>
-									<li><a href="vue_admin_confirmation.php" style="white-space: nowrap;">Confirmation utilisateurs</a></li>
+                	<li><a href="modifier_catalogue.php" style="white-space: nowrap">Modifier le catalogue</a></li>
                 </ul>
             </div>
         </div>

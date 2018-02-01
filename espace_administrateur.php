@@ -4,70 +4,13 @@ require('modele_espace_administrateur.php');
 include('header_admin.php');
 ?>
 
-<style>
-
-table
-{
-	border-collapse: collapse;
-	margin-left: 100px;
-	margin-top: 80px;
-}
-
-td,th
-{
-	border-collapse:collapse;
-	border: 1px solid black;
-	background:rgb(174,186,239);
-	color: black;
-}
-
-a
-{
-	text-decoration: none;
-	color: black;
-}
-
-a:hover
-{
-	color: white;
-}
-
-#suspendu{
-	color: red;
-}
-
-#actif{
-	color: green;
-}
-
-caption
-{
-	font-size: 2em;
-	white-space: nowrap;
-	margin-bottom: 20px;
-	text-decoration: underline;
-}
-
-#documents_juridiques
-{
-	margin-top: 50px;
-}
-
-#documents_juridiques td
-{
-	padding-left: 90px;
-}
-
-</style>
-
-<!-- .....................................................................................    -->
-
+<link rel="stylesheet" type="text/css" href="style_admin.css">
 <title>Espace administrateur</title>
 
 	<section>
 	    <h1>Bienvenue sur l'espace administrateur</h1>
 
-	    <table>
+	    <table id="tableau_administrateur">
 	   <caption><strong>Bilan général</strong></caption>
 
 	   <tr>

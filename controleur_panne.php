@@ -5,30 +5,12 @@ include('header_admin.php');
 $_SESSION['id_utilisateur']=$_GET['panne'];
 ?>
 
-<style>
 
-table
-{
-  margin-left: 400px;
-  margin-top: 50px;
-  border-collapse: collapse;
-  background:rgb(174,186,239); 
-}
-
-td,th
-{
-  border-collapse: collapse;
-  border: 1px solid black;
-}
-
-</style>
-
-<!-- ........................................................ -->
-
+<link rel="stylesheet" type="text/css" href="style_admin.css">
 <title>Historique des pannes</title>
 
 <section>
-  <table>
+  <table id="panne">
     <h1>Historique des pannes</h1>
 
       <tr>
@@ -42,10 +24,10 @@ td,th
         if($donnees1['etat']=="0"){
 ?>
       <tr>
-       <td><?php echo $donnees1['type']; ?></td>
-       <td><?php echo $donnees1['valeur_temps_reel']; ?></td>
-       <td><?php echo $donnees1['rapport_erreur']; ?></td>
-       <td><?php echo $donnees1['date_panne']; ?></td>
+       <td><?php echo htmlspecialchars($donnees1['type']); ?></td>
+       <td><?php echo htmlspecialchars($donnees1['valeur_temps_reel']); ?></td>
+       <td><?php echo htmlspecialchars($donnees1['rapport_erreur']); ?></td>
+       <td><?php echo htmlspecialchars($donnees1['date_panne']); ?></td>
      </tr>
 <?php
         }
