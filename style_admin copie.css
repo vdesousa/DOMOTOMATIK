@@ -1,0 +1,131 @@
+#cgu
+{
+		min-height: 2000px;
+		margin-top: 100px;
+		margin-bottom: 50px;
+		margin-left: 15px;
+}
+
+section
+{
+	width: 100%;
+	bottom: 10%;
+}
+
+textarea
+{
+	display: inline-block;
+	margin-left: 65px;
+	margin-top: 20px;
+	width: 90%;
+	height: 500px;
+}
+input[type="submit"]
+{
+	margin-left: 60px;
+}
+
+#copyright
+{
+	max-height: 500px;
+	margin-top: 250px;
+	margin-left: 550px;
+}
+
+#tableau_administrateur
+{
+	border-collapse: collapse;
+	margin-left: 60px;
+	margin-top: 80px;
+}
+
+td,th
+{
+	border-collapse:collapse;
+	border: 1px solid black;
+	color: black;
+}
+
+th
+{
+		background:rgb(174,186,239);
+}
+
+td
+{
+		background:rgb(238,227,181);
+		width: 60px;
+		height: 40px;
+		padding-left: 20px;
+		white-space: nowrap;
+}
+
+a
+{
+	text-decoration: none;
+	color: black;
+}
+
+a:hover
+{
+	color: white;
+}
+
+#suspendu{
+	color: red;
+}
+
+#actif{
+	color: green;
+}
+
+caption
+{
+	font-size: 2em;
+	white-space: nowrap;
+	margin-bottom: 20px;
+	text-decoration: underline;
+}
+
+#documents_juridiques
+{
+	border-collapse: collapse;
+	margin-top: 50px;
+	margin-left: 80px;
+}
+
+#documents_juridiques td
+{
+	border-collapse: collapse;
+	padding-left: 50px;
+}
+
+#documents_juridiques a
+{
+	padding-right: 40px;
+}
+
+#mentions_legales
+{
+	min-height: 2000px;
+	margin-top: 100px;
+	margin-bottom: 50px;
+	margin-left: 15px;
+}
+
+#suspension_compte
+{
+	width: 300px;
+	margin-left: 39%;
+	margin-top: 10%;
+	border: 1px solid black;
+	border-radius: 4px;
+	padding: 5px;
+}
+
+#panne
+{
+	display: flex;
+	justify-content: center;
+  border-collapse: collapse;
+}
