@@ -51,4 +51,4 @@ input[type="submit"]
 	}
 	</script>
 
-<?php include('footer.php'); ?>
+<?php include('footer_admin.php'); ?>
