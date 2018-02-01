@@ -25,9 +25,6 @@
 				</div>
 				<div id="recherchedeco">
 					<p><a href="logout.php" class="btn btn-danger">Se déconnecter</a></p>
-					<form>
-						<input type="text" name="barre_recherche" placeholder="Rechercher..." />
-					</form>
 				</div>
 			</div>
 		</header>
