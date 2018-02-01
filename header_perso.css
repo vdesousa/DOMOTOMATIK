@@ -1,3 +1,9 @@
+*
+{
+  font-family: calibri,sans-serif;
+  font-weight:lighter;
+  white-space:nowrap;
+}
 header{
 	background:rgb(174,186,239);
 	max-height:200px;
@@ -28,7 +34,11 @@ header #recherchedeco a{
 header form{
 	margin-top:30px;
 }
-
+body
+{
+	margin:0px;
+	padding:0px;
+}
 .container{
 	width:90%;
 	margin:auto;

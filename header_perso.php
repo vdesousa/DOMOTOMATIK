@@ -4,6 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device_width">
 		<link rel="stylesheet" href="header_perso.css">
+		<link rel="stylesheet" href="footer.css">
 	</head>
 	<header>
 		<span class="open-slide">
