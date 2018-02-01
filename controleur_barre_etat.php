@@ -4,7 +4,7 @@ $etat=true;
 $a=0;
 foreach($donnees as $donnee)
 {
-  if ($donnee['etat']==0)
+  if ($donnee['allume_ou_eteint']==0)
   {
     $etat=false;
   }
